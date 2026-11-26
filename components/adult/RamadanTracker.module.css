@@ -1,0 +1,204 @@
+.container {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--color-border);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--color-primary);
+}
+
+.header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.card {
+    background: var(--color-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 1px solid var(--color-border);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.card.completed {
+    background: rgba(139, 195, 74, 0.15);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary);
+}
+
+.cardHeader {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.prayersCard {
+    grid-column: 1 / -1;
+    background: var(--color-bg);
+    padding: 1.5rem;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+}
+
+.prayersCard h3 {
+    font-size: 1.1rem;
+    margin: 0 0 1rem 0;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.prayerListVertical {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.prayerRow {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    width: 100%;
+    text-align: left;
+}
+
+.prayerRow:hover {
+    transform: translateX(4px);
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.prayerRow.active {
+    background: rgba(139, 195, 74, 0.15);
+    color: var(--color-primary-dark);
+    border-color: var(--color-primary);
+    font-weight: 500;
+}
+
+.prayerInfo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.statCard {
+    background: var(--color-bg);
+    padding: 1rem 1.25rem;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    border: 1px solid var(--color-border);
+    transition: all 0.2s;
+}
+
+.statCard:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    background: var(--color-surface);
+    padding: 0.5rem;
+    border-radius: 8px;
+}
+
+.counter button {
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--color-border);
+    background: var(--color-bg);
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    color: var(--color-text);
+    transition: all 0.2s;
+    font-size: 1.2rem;
+}
+
+.counter button:hover {
+    background: var(--color-surface);
+    border-color: var(--color-primary);
+}
+
+.counterInput {
+    flex: 1;
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--color-text);
+    background: transparent;
+    border: none;
+    outline: none;
+    padding: 0.25rem;
+    min-width: 0;
+}
+
+.counterInput:focus {
+    background: var(--color-bg);
+    border-radius: 4px;
+}
+
+/* Hide number input spinners */
+.counterInput::-webkit-outer-spin-button,
+.counterInput::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.counterInput[type=number] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+[data-theme='dark'] .card.completed {
+    background: rgba(139, 195, 74, 0.2);
+}
+
+[data-theme='dark'] .prayerRow.active {
+    background: rgba(139, 195, 74, 0.2);
+}

@@ -1,0 +1,346 @@
+'use client';
+
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+
+type Language = 'en' | 'fr' | 'ar';
+
+interface I18nContextType {
+    language: Language;
+    setLanguage: (lang: Language) => void;
+    t: (key: string) => string;
+    dir: 'ltr' | 'rtl';
+}
+
+const translations: Record<Language, Record<string, string>> = {
+    en: {
+        'greeting': 'As-salamu alaykum',
+        'dashboard_subtitle': 'What can we help you find today?',
+        'search_placeholder': 'Search duas or topics...',
+        'today': 'Today',
+        'duas': 'Duas',
+        'invocations': 'Invocations',
+        'situations': 'Situations',
+        'reminders': 'Reminders',
+        'quran': 'Quran',
+        'tafsir': 'Tafsir',
+        'ramadan': 'Ramadan',
+        '99names': '99 Names',
+        'Dhikr': 'Dhikr',
+        'settings': 'Settings',
+        'prayer_times': 'Prayer Times',
+        'daily_wisdom': 'Daily Wisdom',
+        'ramadan_mubarak': 'Ramadan Mubarak! May Allah accept your fasting.',
+        'location_permission': 'Enable Location',
+        'change_location': 'Change Location',
+        // Kids
+        'kids_greeting': 'Assalamu Alaykum',
+        'kids_msg': "Let's fill our hearts with light today!",
+        'missions': 'Missions',
+        'stories': 'Stories & Learn',
+        'level': 'Level',
+        'xp': 'XP',
+        'level_up': 'LEVEL UP!',
+        'new_story_unlocked': 'New Story Unlocked!',
+        'mission_bismillah': 'Say Bismillah',
+        'mission_clean': 'Clean Your Room',
+        'mission_read': 'Read 1 Surah',
+        'mission_help': 'Help Parents',
+        'mission_smile': 'Smile at Someone',
+        'story_yunus': 'Prophet Yunus & the Whale',
+        'story_sulaiman': 'The Ant & Prophet Sulaiman',
+        'guide_fajr': 'How to Pray: Fajr',
+        'read_story': 'Read Story',
+        'watch_guide': 'Watch Guide',
+        'locked_level': 'Level',
+        // Settings
+        'app_settings': 'App Settings',
+        'prayer_calculation': 'Prayer Calculation',
+        'calc_method': 'Calculation Method',
+        'calc_angles': 'Calculation Angles (Fajr / Isha)',
+        'fajr_angle': 'Fajr Angle',
+        'isha_angle': 'Isha Angle',
+        'angles_hint': 'Angles are determined by the selected method above.',
+        'asr_method': 'Asr Calculation (Madhab)',
+        'standard': 'Standard (Shafi/Maliki/Hanbali)',
+        'hanafi': 'Hanafi',
+        'parental_control': 'Parental Control',
+        'kids_pin': 'Kids Mode PIN',
+        'save_changes': 'Save Changes',
+        'saving': 'Saving...',
+        'saved': 'Settings saved!',
+        // Ramadan Tracker
+        'ramadan_tracker_title': 'Ramadan Tracker',
+        'fasting': 'Fasting',
+        'prayers_title': 'Daily Prayers',
+        'taraweeh': 'Taraweeh',
+        'quran_pages': 'Quran Pages',
+        'daily_dhikr': 'Daily Dhikr',
+        'good_deed': 'Good Deed',
+        'fajr': 'Fajr',
+        'dhuhr': 'Dhuhr',
+        'asr': 'Asr',
+        'maghrib': 'Maghrib',
+        'isha': 'Isha',
+        'suhoor': 'Suhoor',
+        'iftar': 'Iftar',
+        'open_ramadan_space': 'Click to open Ramadan Space',
+        'ramadan_space': 'Ramadan Space',
+        'ramadan_companion': 'Your companion for a blessed month',
+        'tracker': 'Tracker',
+        'calendar': 'Calendar',
+        'guide': 'Guide',
+        // Dashboard
+        'no_results': 'No specific results found. Try "rain", "morning", or "masjid".',
+        'results_for': 'Results for',
+        'click_ramadan': 'Click to open Ramadan Space',
+        // Settings
+        'appearance': 'Appearance',
+        'pistachio': 'Pistachio',
+        'dark': 'Dark',
+        'app_mode': 'App Mode',
+        'adult': 'Adult',
+        'kids': 'Kids',
+        'ramadan_mode': 'Ramadan Mode',
+        'on': 'On',
+        'off': 'Off',
+        'ramadan_mode_desc': 'Enable special features for Ramadan: Iftar/Suhoor countdown, goal tracking, and Duas.',
+        'language': 'Language',
+        'fiqh_madhab': 'Fiqh & Madhab',
+        'preferred_madhab': 'Preferred Madhab (For Rulings)',
+        'general_coming_soon': 'General (Coming Soon)',
+        'madhab_hint': 'Used for Q&A and Fatwas.',
+        'continueReading': 'Continue Reading',
+
+    },
+    fr: {
+        'greeting': 'As-salamu alaykum',
+        'dashboard_subtitle': 'Que pouvons-nous vous aider à trouver aujourd\'hui ?',
+        'search_placeholder': 'Rechercher des duas ou des thèmes...',
+        'today': 'Aujourd\'hui',
+        'duas': 'Douaas',
+        'invocations': 'Invocations',
+        'situations': 'Situations',
+        'reminders': 'Rappels',
+        'quran': 'Coran',
+        'tafsir': 'Tafsir',
+        'ramadan': 'Ramadan',
+        '99names': '99 Noms',
+        'Dhikr': 'Dhikr',
+        'settings': 'Paramètres',
+        'prayer_times': 'Horaires de prière',
+        'daily_wisdom': 'Sagesse du jour',
+        'ramadan_mubarak': 'Ramadan Moubarak ! Qu\'Allah accepte votre jeûne.',
+        'location_permission': 'Activer la localisation',
+        'change_location': 'Changer de lieu',
+        // Kids
+        'kids_greeting': 'Assalamu Alaykum',
+        'kids_msg': "Remplissons nos cœurs de lumière aujourd'hui !",
+        'missions': 'Missions',
+        'stories': 'Histoires & Apprentissage',
+        'level': 'Niveau',
+        'xp': 'XP',
+        'level_up': 'NIVEAU SUPÉRIEUR !',
+        'new_story_unlocked': 'Nouvelle histoire débloquée !',
+        'mission_bismillah': 'Dis Bismillah',
+        'mission_clean': 'Range ta chambre',
+        'mission_read': 'Lis 1 Sourate',
+        'mission_help': 'Aide tes parents',
+        'mission_smile': 'Souris à quelqu\'un',
+        'story_yunus': 'Prophète Younous & la Baleine',
+        'story_sulaiman': 'La Fourmi & Prophète Souleymane',
+        'guide_fajr': 'Comment prier : Fajr',
+        'read_story': 'Lire l\'histoire',
+        'watch_guide': 'Regarder le guide',
+        'locked_level': 'Niveau',
+        // Settings
+        'app_settings': 'Paramètres de l\'application',
+        'prayer_calculation': 'Calcul des Prières',
+        'calc_method': 'Méthode de Calcul',
+        'calc_angles': 'Angles de Calcul (Fajr / Isha)',
+        'fajr_angle': 'Angle Fajr',
+        'isha_angle': 'Angle Isha',
+        'angles_hint': 'Les angles sont déterminés par la méthode sélectionnée ci-dessus.',
+        'asr_method': 'Calcul Asr (Madhab)',
+        'standard': 'Standard (Shafi/Maliki/Hanbali)',
+        'hanafi': 'Hanafi',
+        'parental_control': 'Contrôle Parental',
+        'kids_pin': 'Code PIN Mode Enfant',
+        'save_changes': 'Enregistrer',
+        'saving': 'Enregistrement...',
+        'saved': 'Paramètres enregistrés !',
+        // Ramadan Tracker
+        'ramadan_tracker_title': 'Suivi Ramadan',
+        'fasting': 'Jeûne',
+        'prayers_title': 'Prières Quotidiennes',
+        'taraweeh': 'Taraweeh',
+        'quran_pages': 'Pages du Coran',
+        'daily_dhikr': 'Dhikr Quotidien',
+        'good_deed': 'Bonne Action',
+        'fajr': 'Fajr',
+        'dhuhr': 'Dhuhr',
+        'asr': 'Asr',
+        'maghrib': 'Maghrib',
+        'isha': 'Isha',
+        'suhoor': 'Suhoor',
+        'iftar': 'Iftar',
+        'open_ramadan_space': 'Cliquez pour ouvrir l\'espace Ramadan',
+        'ramadan_space': 'Espace Ramadan',
+        'ramadan_companion': 'Votre compagnon pour un mois béni',
+        'tracker': 'Suivi',
+        'calendar': 'Calendrier',
+        'guide': 'Guide',
+        // Dashboard
+        'no_results': 'Aucun résultat trouvé. Essayez "pluie", "matin" ou "mosquée".',
+        'results_for': 'Résultats pour',
+        'click_ramadan': 'Cliquez pour ouvrir l\'espace Ramadan',
+        // Settings
+        'appearance': 'Apparence',
+        'pistachio': 'Pistache',
+        'dark': 'Sombre',
+        'app_mode': 'Mode Application',
+        'adult': 'Adulte',
+        'kids': 'Enfant',
+        'ramadan_mode': 'Mode Ramadan',
+        'on': 'Activé',
+        'off': 'Désactivé',
+        'ramadan_mode_desc': 'Activez des fonctionnalités spéciales pour le Ramadan : compte à rebours Iftar/Suhoor, suivi des objectifs et Duas.',
+        'language': 'Langue',
+        'fiqh_madhab': 'Fiqh & Madhab',
+        'preferred_madhab': 'Madhab Préféré (Pour les règles)',
+        'general_coming_soon': 'Général (Bientôt)',
+        'madhab_hint': 'Utilisé pour les Q&R et les Fatwas.',
+        'continueReading': 'Continuer la lecture',
+
+    },
+    ar: {
+        'greeting': 'السلام عليكم',
+        'dashboard_subtitle': 'كيف يمكننا مساعدتك اليوم؟',
+        'search_placeholder': 'ابحث عن دعاء أو موضوع...',
+        'today': 'اليوم',
+        'duas': 'أدعية',
+        'invocations': 'الأذكار',
+        'situations': 'مواقف',
+        'reminders': 'تذكيرات',
+        'quran': 'القرآن',
+        'tafsir': 'تفسير',
+        'ramadan': 'رمضان',
+        '99names': 'الأسماء الحسنى',
+        'Dhikr': 'ذكر',
+        'settings': 'الإعدادات',
+        'prayer_times': 'مواقيت الصلاة',
+        'daily_wisdom': 'حكمة اليوم',
+        'ramadan_mubarak': 'رمضان مبارك! تقبل الله صيامكم.',
+        'location_permission': 'تفعيل الموقع',
+        'change_location': 'تغيير الموقع',
+        // Kids
+        'kids_greeting': 'السلام عليكم',
+        'kids_msg': "لنملأ قلوبنا بالنور اليوم!",
+        'missions': 'مهام',
+        'stories': 'قصص وتعلم',
+        'level': 'مستوى',
+        'xp': 'نقاط',
+        'level_up': 'مستوى جديد!',
+        'new_story_unlocked': 'تم فتح قصة جديدة!',
+        'mission_bismillah': 'قل بسم الله',
+        'mission_clean': 'رتب غرفتك',
+        'mission_read': 'اقرأ سورة واحدة',
+        'mission_help': 'ساعد والديك',
+        'mission_smile': 'ابتسم في وجه أخيك',
+        'story_yunus': 'النبي يونس والحوت',
+        'story_sulaiman': 'النملة والنبي سليمان',
+        'guide_fajr': 'كيفية صلاة الفجر',
+        'read_story': 'اقرأ القصة',
+        'watch_guide': 'شاهد الدليل',
+        'locked_level': 'مستوى',
+        // Settings
+        'app_settings': 'إعدادات التطبيق',
+        'prayer_calculation': 'حساب الصلاة',
+        'calc_method': 'طريقة الحساب',
+        'calc_angles': 'زوايا الحساب (الفجر / العشاء)',
+        'fajr_angle': 'زاوية الفجر',
+        'isha_angle': 'زاوية العشاء',
+        'angles_hint': 'يتم تحديد الزوايا بناءً على الطريقة المختارة أعلاه.',
+        'asr_method': 'حساب العصر (المذهب)',
+        'standard': 'جمهور (شافعي/مالكي/حنبلي)',
+        'hanafi': 'حنفي',
+        'parental_control': 'الرقابة الأبوية',
+        'kids_pin': 'رمز PIN لوضع الأطفال',
+        'save_changes': 'حفظ التغييرات',
+        'saving': 'جاري الحفظ...',
+        'saved': 'تم حفظ الإعدادات!',
+        // Ramadan Tracker
+        'ramadan_tracker_title': 'متابع رمضان',
+        'fasting': 'الصيام',
+        'prayers_title': 'الصلوات الخمس',
+        'taraweeh': 'التراويح',
+        'quran_pages': 'صفحات القرآن',
+        'daily_dhikr': 'الأذكار اليومية',
+        'good_deed': 'عمل صالح',
+        'fajr': 'الفجر',
+        'dhuhr': 'الظهر',
+        'asr': 'العصر',
+        'maghrib': 'المغرب',
+        'isha': 'العشاء',
+        'suhoor': 'سحور',
+        'iftar': 'إفطار',
+        'open_ramadan_space': 'انقر لفتح رحاب رمضان',
+        'ramadan_space': 'رحاب رمضان',
+        'ramadan_companion': 'رفيقك في الشهر الفضيل',
+        'tracker': 'متابعة',
+        'calendar': 'التقويم',
+        'guide': 'دليل',
+        // Dashboard
+        'no_results': 'لم يتم العثور على نتائج. جرب "مطر"، "صباح"، أو "مسجد".',
+        'results_for': 'نتائج البحث عن',
+        'click_ramadan': 'انقر لفتح رحاب رمضان',
+        // Settings
+        'appearance': 'المظهر',
+        'pistachio': 'فستقي',
+        'dark': 'داكن',
+        'app_mode': 'وضع التطبيق',
+        'adult': 'بالغ',
+        'kids': 'طفل',
+        'ramadan_mode': 'وضع رمضان',
+        'on': 'مفعل',
+        'off': 'معطل',
+        'ramadan_mode_desc': 'تفعيل ميزات خاصة لرمضان: عد تنازلي للإفطار والسحور، متابعة الأهداف والأدعية.',
+        'language': 'اللغة',
+        'fiqh_madhab': 'الفقه والمذهب',
+        'preferred_madhab': 'المذهب المفضل (للأحكام)',
+        'general_coming_soon': 'عام (قريباً)',
+        'madhab_hint': 'يستخدم للأسئلة والأجوبة والفتاوى.',
+        'continueReading': 'متابعة القراءة',
+
+    }
+};
+
+const I18nContext = createContext<I18nContextType | undefined>(undefined);
+
+export function I18nProvider({ children }: { children: ReactNode }) {
+    const [language, setLanguage] = useState<Language>('fr');
+
+    const t = (key: string) => {
+        return translations[language][key] || key;
+    };
+
+    const dir = language === 'ar' ? 'rtl' : 'ltr';
+
+    useEffect(() => {
+        document.documentElement.dir = dir;
+        document.documentElement.lang = language;
+    }, [dir, language]);
+
+    return (
+        <I18nContext.Provider value={{ language, setLanguage, t, dir }}>
+            {children}
+        </I18nContext.Provider>
+    );
+}
+
+export function useI18n() {
+    const context = useContext(I18nContext);
+    if (context === undefined) {
+        throw new Error('useI18n must be used within a I18nProvider');
+    }
+    return context;
+}

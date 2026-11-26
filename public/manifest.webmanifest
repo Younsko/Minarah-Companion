@@ -1,0 +1,14 @@
+{
+  "name": "Minarah — compagnon quotidien",
+  "short_name": "Minarah",
+  "description": "Un compagnon quotidien local et respectueux de la vie privée.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#101510",
+  "theme_color": "#101510",
+  "icons": [
+    { "src": "/assets/MinarahLogo2.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

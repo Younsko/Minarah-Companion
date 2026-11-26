@@ -1,0 +1,42 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import styles from './DailyDua.module.css';
+import { RefreshCw, Hand } from 'lucide-react';
+import { useI18n } from '@/lib/i18n-context';
+import { CONTEXT_DB, ContextItem } from '@/lib/context-engine';
+import OpenDuaAttribution from './OpenDuaAttribution';
+
+export default function DailyDua() {
+    const { language } = useI18n();
+    const [dua, setDua] = useState<ContextItem>(CONTEXT_DB[0]);
+
+    useEffect(() => {
+        const start = new Date(new Date().getFullYear(), 0, 0);
+        const day = Math.floor((Date.now() - start.getTime()) / 86_400_000);
+        setDua(CONTEXT_DB[day % CONTEXT_DB.length]);
+    }, []);
+
+    const chooseAnother = () => setDua(CONTEXT_DB[Math.floor(Math.random() * CONTEXT_DB.length)]);
+
+    return (
+        <div className={styles.container}>
+            <div className={styles.header}>
+                <div className={styles.title}>
+                    <Hand size={18} />
+                    <span>{language === 'fr' ? 'Doua du jour' : language === 'ar' ? 'دعاء اليوم' : 'Dua of the day'}</span>
+                </div>
+                <button onClick={chooseAnother} className={styles.refreshBtn} title="Choose another dua" aria-label="Choose another dua">
+                    <RefreshCw size={16} />
+                </button>
+            </div>
+
+            <h3>{dua.title}</h3>
+            <p className={styles.transliteration} lang="en">{dua.transliteration}</p>
+            {language !== 'en' && <small>{language === 'fr' ? 'Traduction anglaise' : 'الترجمة الإنجليزية'}</small>}
+            <p className={styles.translation} lang="en">{dua.text}</p>
+            <span className={styles.source}>{dua.source}</span>
+            <OpenDuaAttribution />
+        </div>
+    );
+}

@@ -1,0 +1,66 @@
+.browser {
+    padding: 16px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 16px;
+}
+
+.topicCard {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary-dark);
+    /* Green text like Duas */
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 100px;
+}
+
+.topicCard:hover {
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+    background: rgba(139, 195, 74, 0.1);
+    /* Green hover like the rest of the app */
+    color: var(--color-primary);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header h2 {
+    color: var(--color-primary-dark);
+}
+
+.backButton {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+}
+
+.backButton:hover {
+    background: var(--color-bg);
+    color: var(--color-text);
+}
+
+.resultsList {
+    display: grid;
+    gap: 16px;
+}

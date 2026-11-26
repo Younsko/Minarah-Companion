@@ -1,0 +1,95 @@
+.wizard {
+    background: var(--color-surface);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    box-shadow: var(--shadow-lg);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.progressBar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+.step {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-bg);
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    transition: all 0.3s;
+}
+
+.step.active {
+    background: var(--color-primary);
+    color: white;
+}
+
+.line {
+    width: 40px;
+    height: 2px;
+    background: var(--color-border);
+    margin: 0 8px;
+}
+
+.stepContent h2 {
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--color-text);
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.options button {
+    padding: 20px;
+    border: 2px solid var(--color-border);
+    background: transparent;
+    border-radius: var(--radius-md);
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.options button:hover {
+    border-color: var(--color-primary);
+    background: var(--color-secondary);
+    color: var(--color-primary-dark);
+}
+
+.resultsHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.resetButton {
+    background: transparent;
+    border: 1px solid var(--color-border);
+    padding: 8px 16px;
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    color: var(--color-text-muted);
+}
+
+.empty {
+    text-align: center;
+    padding: 24px;
+    color: var(--color-text-muted);
+}

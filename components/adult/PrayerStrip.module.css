@@ -1,0 +1,50 @@
+.container {
+    width: 100%;
+    overflow-x: auto;
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    margin-bottom: 24px;
+    padding: 16px;
+    box-shadow: var(--shadow-sm);
+}
+
+.scrollContainer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: max-content;
+}
+
+.prayerItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 16px;
+    border-radius: 12px;
+    min-width: 80px;
+    transition: all 0.2s;
+}
+
+.prayerItem.active {
+    background: var(--color-primary);
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+.name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.prayerItem.active .name {
+    opacity: 1;
+}
+
+.time {
+    font-size: 1.1rem;
+    font-weight: 700;
+}

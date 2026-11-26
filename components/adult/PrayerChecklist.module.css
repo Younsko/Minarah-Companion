@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Date Section */
+.dateSection {
+    text-align: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.hijriDate {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+}
+
+.gregorianDate {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+/* Checklist Section */
+.checklistSection {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.checklistHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.checklistTitle {
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.progressText {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+/* Progress Bar */
+.progressBar {
+    height: 6px;
+    background: var(--color-bg);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progressFill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--color-primary), #4caf50);
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+/* Prayer List */
+.prayerList {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.prayerItem {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.75rem 0.5rem;
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.prayerItem:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-2px);
+}
+
+.prayerItem.completed {
+    background: rgba(139, 195, 74, 0.15);
+    border-color: var(--color-primary);
+}
+
+.prayerIcon {
+    color: var(--color-text-muted);
+    transition: all 0.2s;
+}
+
+.prayerItem.completed .prayerIcon {
+    color: var(--color-primary);
+}
+
+.prayerName {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.checkCircle {
+    color: #95a5a6;
+    /* Darker grey for better visibility */
+    transition: all 0.2s;
+}
+
+.prayerItem.completed .checkCircle {
+    color: var(--color-primary);
+}
+
+/* Celebration Message */
+.celebration {
+    text-align: center;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, rgba(139, 195, 74, 0.1), rgba(76, 175, 80, 0.1));
+    border-radius: 12px;
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+/* Mobile */
+@media (max-width: 400px) {
+    .prayerList {
+        gap: 0.35rem;
+    }
+
+    .prayerItem {
+        padding: 0.6rem 0.25rem;
+    }
+
+    .prayerName {
+        font-size: 0.6rem;
+    }
+}

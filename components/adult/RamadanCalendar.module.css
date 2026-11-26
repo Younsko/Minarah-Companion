@@ -1,0 +1,95 @@
+.container {
+    background: var(--color-surface);
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--color-border);
+}
+
+.header {
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 0.5rem;
+}
+
+.dayHeader {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    font-weight: 500;
+    padding-bottom: 0.5rem;
+}
+
+.dayCell {
+    aspect-ratio: 1;
+    border-radius: 8px;
+    background: var(--color-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s;
+    border: 1px solid var(--color-border);
+    /* Visible border for light mode */
+}
+
+.dayCell:hover {
+    border-color: var(--color-primary);
+    background: rgba(139, 195, 74, 0.15);
+    /* Green background on hover */
+    transform: scale(1.05);
+}
+
+.fastingDay {
+    background: rgba(139, 195, 74, 0.15);
+    border-color: var(--color-primary);
+}
+
+.dayNumber {
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--color-text);
+}
+
+.indicators {
+    display: flex;
+    gap: 2px;
+}
+
+.iconFasting {
+    color: var(--color-primary);
+}
+
+.iconPrayer {
+    color: #10b981;
+}
+
+.iconTaraweeh {
+    color: #f59e0b;
+}
+
+.legend {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.legendItem {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}

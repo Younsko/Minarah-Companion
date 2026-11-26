@@ -1,0 +1,216 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.headerTitle {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--color-text);
+}
+
+.headerIcon {
+    color: #ffc107;
+    fill: #ffc107;
+}
+
+.count {
+    background: var(--color-primary);
+    color: white;
+    padding: 0.15rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    text-align: center;
+    color: var(--color-text-muted);
+}
+
+.emptyIcon {
+    color: var(--color-border);
+    margin-bottom: 0.75rem;
+}
+
+.emptyHint {
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+/* Grid - 1 column on mobile for readability, 2 on tablet, 3 on desktop */
+.masonryGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+@media (min-width: 600px) {
+    .masonryGrid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+}
+
+@media (min-width: 900px) {
+    .masonryGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Individual Pin Card */
+.pin {
+    background: var(--color-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    padding: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.pin:hover {
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Type Badge */
+.pinBadge {
+    align-self: flex-start;
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    color: white;
+}
+
+/* Arabic Text - compact on mobile */
+.pinArabic {
+    font-family: 'Amiri', serif;
+    font-size: 1.1rem;
+    text-align: right;
+    color: var(--color-text);
+    margin: 0;
+    line-height: 1.8;
+    direction: rtl;
+    /* Limit lines on mobile - increased since only one lang shown */
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Translation - compact */
+.pinTranslation {
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+    margin: 0;
+    line-height: 1.5;
+    /* Limit lines - increased */
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    line-clamp: 8;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+/* Footer */
+.pinFooter {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--color-border);
+}
+
+.pinSource {
+    font-size: 0.65rem;
+    color: var(--color-primary);
+    font-weight: 600;
+    max-width: 80%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.pinDelete {
+    width: 24px;
+    height: 24px;
+    border-radius: 6px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.pin:hover .pinDelete,
+.pinDelete:focus {
+    opacity: 1;
+}
+
+.pinDelete:hover {
+    color: #e74c3c;
+    background: rgba(231, 76, 60, 0.1);
+}
+
+/* Show More Button */
+.showMoreBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    color: var(--color-text);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-top: 0.5rem;
+}
+
+.showMoreBtn:hover {
+    border-color: var(--color-primary);
+    color: var(--color-primary);
+}
+
+.chevronUp {
+    transform: rotate(180deg);
+}
+
+/* Local Note */
+.localNote {
+    font-size: 0.7rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin: 0;
+    opacity: 0.7;
+}

@@ -1,0 +1,445 @@
+.dashboard {
+    padding: 24px;
+    max-width: 900px;
+    /* Increased slightly for better library feel */
+    margin: 0 auto;
+    padding-bottom: 100px;
+}
+
+.header {
+    margin-bottom: 32px;
+}
+
+.headerTop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.langButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-text);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.langButton:hover {
+    background: var(--color-secondary);
+}
+
+.headerButtons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.settingsButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 50%;
+    color: var(--color-text-muted);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.settingsButton:hover {
+    background: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.ramadanBanner {
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: var(--color-primary);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(139, 195, 74, 0.3);
+}
+
+.greeting h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 4px;
+}
+
+.greeting p {
+    color: var(--color-text-muted);
+}
+
+.searchBar {
+    position: relative;
+    margin-top: 24px;
+}
+
+.searchIcon {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-muted);
+}
+
+.searchInput {
+    width: 100%;
+    padding: 16px 16px 16px 48px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    background: var(--color-surface);
+    font-size: 1rem;
+    color: var(--color-text);
+    transition: all 0.2s;
+}
+
+.searchInput:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(139, 195, 74, 0.1);
+}
+
+.clearButton {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: var(--color-text-muted);
+    cursor: pointer;
+}
+
+/* Tabs Container - with scroll indicators */
+.tabsContainer {
+    position: relative;
+    margin: 0 -0.75rem 16px -0.75rem;
+}
+
+/* Gradient scroll indicators */
+.tabsContainer::before,
+.tabsContainer::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 24px;
+    pointer-events: none;
+    z-index: 2;
+}
+
+.tabsContainer::before {
+    left: 0;
+    background: linear-gradient(to right, var(--color-bg) 0%, transparent 100%);
+}
+
+.tabsContainer::after {
+    right: 0;
+    background: linear-gradient(to left, var(--color-bg) 0%, transparent 100%);
+}
+
+/* Tabs Wrapper - Scrollable pill navigation */
+.tabsWrapper {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    /* Mobile: safe padding */
+    padding: 10px 20px;
+    scrollbar-width: none;
+    justify-content: flex-start;
+    background: var(--color-surface);
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
+    margin: 0 0.5rem;
+    /* Smooth scroll */
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Desktop: Center tabs comfortably */
+@media (min-width: 768px) {
+    .tabsContainer {
+        margin: 0 0 24px 0;
+        /* Center the child wrapper */
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        position: relative;
+    }
+
+    .tabsContainer::before,
+    .tabsContainer::after {
+        display: none;
+    }
+
+    .tabsWrapper {
+        margin: 0;
+        /* Reset margins */
+
+        /* 1. Shrink to fit content */
+        width: fit-content;
+
+        /* 2. Prevent overflow of parent page */
+        max-width: 100%;
+
+        /* 3. Logic: If content < max-width, fit-content makes it small, parent centers it. 
+           If content > max-width, max-width caps it, overflow-x handles scroll. */
+        justify-content: flex-start;
+
+        padding: 12px;
+    }
+}
+
+.tabsWrapper::-webkit-scrollbar {
+    display: none;
+}
+
+.tab {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 16px;
+    /* Slightly less rounded for a cleaner look */
+    border: 1px solid transparent;
+    /* Transparent border by default */
+    background: transparent;
+    /* Transparent background for inactive */
+    color: var(--color-text-muted);
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tab:hover {
+    background: var(--color-surface);
+    color: var(--color-primary);
+}
+
+.activeTab {
+    background: var(--color-surface);
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Specific style for Ramadan tab when active */
+.ramadanTab.activeTab {
+    background: linear-gradient(135deg, var(--color-primary) 0%, #4caf50 100%);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
+}
+
+/* Content Grid */
+.todayGrid {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card {
+    background: var(--color-surface);
+    border-radius: 24px;
+    padding: 24px;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
+
+.card h3 {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--color-primary);
+}
+
+/* Daily Wisdom */
+.quote {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.6;
+    margin-bottom: 12px;
+    color: var(--color-text);
+}
+
+.translation {
+    font-size: 1rem;
+    color: var(--color-text-muted);
+    margin-bottom: 12px;
+}
+
+.source {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    text-align: right;
+}
+
+/* Image Card */
+.imageCard {
+    padding: 0;
+    overflow: hidden;
+    height: 200px;
+    position: relative;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #a8e063 0%, #56ab2f 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Search Results */
+.sectionTitle {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.resultsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.noResults {
+    text-align: center;
+    padding: 40px;
+    color: var(--color-text-muted);
+}
+
+/* =============================================
+   MOBILE - Full screen experience for browsers
+   ============================================= */
+@media (max-width: 768px) {
+    .dashboard {
+        padding: 0;
+        max-width: 100%;
+        margin: 0;
+        padding-bottom: 0;
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header {
+        padding: 1rem 0.75rem;
+        margin-bottom: 0;
+        flex-shrink: 0;
+    }
+
+    .headerTop {
+        margin-bottom: 0.75rem;
+    }
+
+    .greeting h1 {
+        font-size: 1.5rem;
+    }
+
+    .greeting p {
+        font-size: 0.9rem;
+    }
+
+    .searchBar {
+        margin-top: 1rem;
+    }
+
+    .searchInput {
+        padding: 12px 12px 12px 44px;
+        font-size: 0.95rem;
+    }
+
+    .tabsContainer {
+        margin: 0 0.375rem 8px 0.375rem;
+        flex-shrink: 0;
+    }
+
+    .tabsWrapper {
+        padding: 6px 8px;
+        gap: 6px;
+        background: var(--color-surface);
+        border-radius: 12px;
+        border: 1px solid var(--color-border);
+    }
+
+    .tab {
+        padding: 6px 10px;
+        font-size: 0.75rem;
+        border-radius: 8px;
+        flex-shrink: 0;
+    }
+
+    /* Content area - fills remaining space */
+    .content {
+        flex: 1;
+        overflow-y: auto;
+        overflow-x: hidden;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    /* Today grid needs padding */
+    .todayGrid {
+        padding: 0.75rem;
+    }
+
+    .card {
+        padding: 1rem;
+        border-radius: 16px;
+    }
+}
+
+/* Skeleton Loading */
+.skeleton {
+    background: linear-gradient(90deg, var(--color-bg) 25%, var(--color-border) 50%, var(--color-bg) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+    border-radius: 4px;
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+.skeletonText {
+    height: 1.2rem;
+    width: 100%;
+    margin-bottom: 0.8rem;
+    border-radius: 4px;
+}
