@@ -18,6 +18,7 @@ import RamadanTracker from './RamadanTracker';
 import FavoritesSection from './FavoritesSection';
 import PrayerTimesPanel from './PrayerTimesPanel';
 import DailyDua from './DailyDua';
+import DailyReadingCompanion from './DailyReadingCompanion';
 
 export default function AdultDashboard() {
     const [activeTab, setActiveTab] = useState('today');
@@ -251,6 +252,10 @@ export default function AdultDashboard() {
                                 {/* Prayer Checklist with Date */}
                                 <div className={styles.card}>
                                     <PrayerTimesPanel />
+                                </div>
+
+                                <div className={styles.card}>
+                                    <DailyReadingCompanion />
                                 </div>
 
                                 {/* Verse of the Day */}

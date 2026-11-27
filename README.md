@@ -5,10 +5,10 @@ Minarah is a local-first daily companion for Quran reading, duas, and configurab
 ## Current scope
 
 - Quran reader backed by the repository’s local surah files. Reading position, favorites, and preferences are stored in the browser.
+- A gentle daily reading rhythm on the home screen: resume the last Quran position, choose a personal 5/10/15-minute intention, and mark reading moments in a local seven-day view. It is an optional self-check, not a streak or a measure of religious practice.
 - Prayer times calculated on-device with [Adhan JS](https://github.com/batoulapps/adhan-js). Address search returns coordinates; the IANA time zone is then detected locally from those coordinates with an offline lookup dataset. Users can override it, choose the calculation method and Asr madhab, set custom Fajr/Isha angles, and apply minute adjustments.
 - Optional Mawaqit iframe: a user supplies an official mosque widget link and explicitly consents before it loads. Local prayer calculations remain available independently.
-- Browser-only settings and progress with versioned JSON export/import.
-- Daily prayer progress follows the selected location's calendar date.
+- Browser-only settings and progress with versioned JSON export/import. Daily prayer and reading progress follow the selected location's calendar date.
 - Content sources and licenses are collected in Settings → About and content sources instead of repeated on every dua page.
 - Installable PWA with an offline cache for the local Quran files.
 - No account, application database, Convex, analytics, or server-side user profile.

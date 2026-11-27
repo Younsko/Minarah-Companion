@@ -80,7 +80,7 @@ export default function PrayerTimesPanel() {
     const timer = window.setInterval(() => setNow(new Date()), 1000); return () => window.clearInterval(timer);
   }, []);
   useEffect(() => { if (coords) { setLat(String(coords.lat)); setLng(String(coords.lng)); setPlace(city || ''); } }, [coords, city]);
-  const save = (patch: Partial<Config>) => setConfig(current => { const next = { ...current, ...patch }; localState.setItem('minarah-prayer-config', JSON.stringify(next)); return next; });
+  const save = (patch: Partial<Config>) => setConfig(current => { const next = { ...current, ...patch }; localState.setItem('minarah-prayer-config', JSON.stringify(next)); window.dispatchEvent(new Event('minarah-prayer-config-updated')); return next; });
   const detectedTimeZone = useMemo(() => {
     if (!coords) return config.timeZone;
     try { return tzLookup(coords.lat, coords.lng); }
@@ -171,4 +171,3 @@ export default function PrayerTimesPanel() {
     </div>}
   </section>;
 }
-

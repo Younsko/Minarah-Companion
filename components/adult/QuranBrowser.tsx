@@ -432,6 +432,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
         };
         setLastRead(progress);
         localState.setItem('muslim-life-quran-bookmark', JSON.stringify(progress));
+        window.dispatchEvent(new Event('minarah-reading-progress-updated'));
     };
 
     const playAudio = async (index: number) => {
@@ -565,6 +566,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
         };
         setLastRead(bookmark);
         localState.setItem('muslim-life-quran-bookmark', JSON.stringify(bookmark));
+        window.dispatchEvent(new Event('minarah-reading-progress-updated'));
     };
 
     const togglePlayPause = () => {

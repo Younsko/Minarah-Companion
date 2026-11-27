@@ -1,0 +1,92 @@
+.companion {
+  display: grid;
+  gap: 1.1rem;
+  color: var(--color-text);
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  flex: none;
+  border: 1px solid color-mix(in srgb, var(--color-primary) 28%, transparent);
+  border-radius: 13px;
+  background: color-mix(in srgb, var(--color-primary) 10%, var(--color-surface));
+  color: var(--color-primary);
+}
+
+.heading { min-width: 0; }
+.heading h3 { margin: .1rem 0 .3rem; color: var(--color-text); font-size: 1.05rem; }
+.heading p { margin: 0; color: var(--color-text-muted); font-size: .85rem; line-height: 1.5; }
+
+.resumeRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: .95rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 15px;
+  background: color-mix(in srgb, var(--color-bg) 55%, transparent);
+}
+
+.bookmark { display: grid; gap: .28rem; min-width: 0; }
+.bookmark strong { overflow: hidden; color: var(--color-text); font-size: .9rem; text-overflow: ellipsis; }
+.eyebrow { display: inline-flex; align-items: center; gap: .35rem; color: var(--color-text-muted); font-size: .72rem; font-weight: 700; letter-spacing: .035em; }
+
+.resumeButton, .markButton, .doneButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  min-height: 40px;
+  border: 1px solid var(--color-primary);
+  border-radius: 11px;
+  padding: .55rem .8rem;
+  background: var(--color-primary);
+  color: #172218;
+  font: inherit;
+  font-size: .8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.resumeButton:hover, .markButton:hover, .doneButton:hover { transform: translateY(-1px); }
+.resumeButton:focus-visible, .goalChoices button:focus-visible, .markButton:focus-visible, .doneButton:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; }
+
+.footer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(180px, .9fr); gap: 1.25rem; align-items: end; }
+.goalBlock, .weekBlock { display: grid; gap: .55rem; }
+.goalChoices { display: flex; gap: .4rem; flex-wrap: wrap; }
+.goalChoices button { min-height: 34px; border: 1px solid var(--color-border); border-radius: 999px; padding: .35rem .7rem; background: var(--color-bg); color: var(--color-text-muted); font: inherit; font-size: .78rem; cursor: pointer; }
+.goalChoices button.goalActive { border-color: var(--color-primary); background: color-mix(in srgb, var(--color-primary) 15%, var(--color-surface)); color: var(--color-text); font-weight: 700; }
+.weekHeading { display: flex; align-items: center; justify-content: space-between; gap: .5rem; }
+.weekHeading strong { color: var(--color-primary); font-size: .82rem; }
+.weekDots { display: grid; grid-template-columns: repeat(7, 1fr); gap: .42rem; }
+.dayDot, .dayDone { height: 8px; border-radius: 99px; background: var(--color-border); }
+.dayDone { background: var(--color-primary); box-shadow: 0 0 0 1px color-mix(in srgb, var(--color-primary) 25%, transparent); }
+
+.markRow { display: flex; align-items: center; justify-content: space-between; gap: .85rem; padding-top: .8rem; border-top: 1px solid var(--color-border); }
+.encouragement, .markedMessage { color: var(--color-text-muted); font-size: .77rem; line-height: 1.45; }
+.markedMessage { color: var(--color-primary); font-weight: 700; }
+.doneButton { border-color: var(--color-border); background: var(--color-surface); color: var(--color-text); }
+
+@media (max-width: 600px) {
+  .resumeRow { align-items: stretch; flex-direction: column; }
+  .resumeButton { width: 100%; }
+  .footer { grid-template-columns: 1fr; gap: .9rem; }
+  .markRow { align-items: stretch; flex-direction: column; }
+  .markButton, .doneButton { width: 100%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .resumeButton, .markButton, .doneButton { transition: none; }
+  .resumeButton:hover, .markButton:hover, .doneButton:hover { transform: none; }
+}
