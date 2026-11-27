@@ -79,12 +79,15 @@ export default function PrayerTimesPanel() {
   useEffect(() => { if (coords) { setLat(String(coords.lat)); setLng(String(coords.lng)); setPlace(city || ''); } }, [coords, city]);
   useEffect(() => { setTimeZoneDraft(config.timeZone); }, [config.timeZone]);
   const save = (patch: Partial<Config>) => setConfig(current => { const next = { ...current, ...patch }; localState.setItem('minarah-prayer-config', JSON.stringify(next)); return next; });
+  const dateInPrayerZone = calendarDateInTimeZone(now, config.timeZone);
+  const prayerDayKey = `${dateInPrayerZone.getFullYear()}-${dateInPrayerZone.getMonth() + 1}-${dateInPrayerZone.getDate()}`;
   const calculations = useMemo(() => {
     if (!coords || !config.method) return null;
     const params = CalculationMethod[config.method]();
     if (config.method === 'Other') { params.fajrAngle = config.fajr; params.ishaAngle = config.isha; }
     params.madhab = config.madhab === 'Hanafi' ? Madhab.Hanafi : Madhab.Shafi;
-    const prayerDate = calendarDateInTimeZone(now, config.timeZone);
+    const [year, month, day] = prayerDayKey.split('-').map(Number);
+    const prayerDate = new Date(year, month - 1, day);
     const timings = new PrayerTimes(new Coordinates(coords.lat, coords.lng), prayerDate, params);
     const addAdjustment = (key: string, date: Date) => new Date(date.getTime() + (config.adjustments[key] || 0) * 60_000);
     const labels = Object.fromEntries(PRAYERS.map(([key]) => [key, addAdjustment(key, timings[key])])) as Record<PrayerKey, Date>;
@@ -93,7 +96,7 @@ export default function PrayerTimesPanel() {
     const candidates = [...PRAYERS.map(([key]) => ({ key, date: labels[key] })), { key: 'fajr' as const, date: addAdjustment('fajr', tomorrow.fajr) }];
     const nextPrayer = candidates.find(item => item.date.getTime() > now.getTime()) || candidates[candidates.length - 1];
     return { timings, params, labels, nextPrayer };
-  }, [coords, config, now]);
+  }, [coords, config, prayerDayKey]);
   const saveManual = () => setManualLocation(Number(lat), Number(lng), place.trim() || 'Lieu personnalisé');
   const searchAddress = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
