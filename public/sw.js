@@ -1,4 +1,4 @@
-const VERSION = 'minarah-v2';
+const VERSION = 'minarah-v3';
 const CORE = ['/', '/manifest.webmanifest', '/data/quran/surahs.json'];
 const QURAN = Array.from({ length: 114 }, (_, index) => `/data/quran/surah-${index + 1}.json`);
 self.addEventListener('install', event => {
