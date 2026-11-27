@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import { ArrowRight, BookOpen, Check, Clock3 } from 'lucide-react';
+import { BookOpen, Check, Clock3 } from 'lucide-react';
 import tzLookup from '@photostructure/tz-lookup';
 import { localState } from '@/lib/local-state';
 import { useI18n } from '@/lib/i18n-context';
@@ -133,7 +133,7 @@ export default function DailyReadingCompanion() {
           <strong>{bookmark ? `${bookmark.surahName} · ${french ? 'verset' : arabic ? 'آية' : 'verse'} ${bookmark.ayahNumber}` : labels.noBookmark}</strong>
         </div>
         <button type="button" className={styles.resumeButton} onClick={openBookmark}>
-          <span>{bookmark ? labels.resume : labels.start}</span><ArrowRight size={16} aria-hidden="true" />
+          <span>{bookmark ? labels.resume : labels.start}</span>
         </button>
       </div>
 
@@ -147,7 +147,7 @@ export default function DailyReadingCompanion() {
 
         <div className={styles.weekBlock}>
           <div className={styles.weekHeading}><span className={styles.eyebrow}>{labels.thisWeek}</span><strong>{completedThisWeek}/7</strong></div>
-          <div className={styles.weekDots} aria-label={`${completedThisWeek} ${french ? 'sur 7 cette semaine' : arabic ? 'من ٧ هذا الأسبوع' : 'of 7 this week'}`}>
+          <div className={styles.weekDots} role="img" aria-label={`${completedThisWeek} ${french ? 'sur 7 des derniers jours' : arabic ? 'من آخر ٧ أيام' : 'of the last 7 days'}`}>
             {week.map(day => <span key={day} className={completedDays[day] ? styles.dayDone : styles.dayDot} title={day} />)}
           </div>
         </div>
