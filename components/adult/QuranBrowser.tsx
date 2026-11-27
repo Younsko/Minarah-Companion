@@ -1021,7 +1021,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                                                             className={styles.translationText}
                                                             style={{ fontSize: `${Math.max(16, fontSize * 0.6)}px` }}
                                                         >
-                                                            {translation.text}
+                                                            {translation.text.replace(/\[\d+\]/g, '').trim()}
                                                         </div>
                                                     )}
                                                 </div>
