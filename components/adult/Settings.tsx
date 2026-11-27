@@ -3,10 +3,11 @@ import { localState } from '@/lib/local-state';
 
 import { useState, useEffect } from 'react';
 import styles from './Settings.module.css';
-import { X, Volume2, Bell, Check, Download, Upload } from 'lucide-react';
+import { X, Volume2, Bell, Check, Download, Upload, ArrowLeft, Info } from 'lucide-react';
 import { useI18n } from '@/lib/i18n-context';
 import { RECITERS, getDefaultReciter, setDefaultReciter } from '@/lib/reciters';
 import CustomSelect from '@/components/CustomSelect';
+import ContentSources from './ContentSources';
 
 interface SettingsProps {
     onClose: () => void;
@@ -26,6 +27,7 @@ export default function Settings({ onClose }: SettingsProps) {
     // Save feedback
     const [showSaved, setShowSaved] = useState(false);
     const [backupError, setBackupError] = useState('');
+    const [showSources, setShowSources] = useState(false);
 
     useEffect(() => {
         // Load reciter preference
@@ -122,7 +124,10 @@ export default function Settings({ onClose }: SettingsProps) {
             <div className={styles.modalContent} onClick={(e) => e.stopPropagation()}>
                 {/* Header */}
                 <header className={styles.modalHeader}>
-                    <h2>{language === 'fr' ? 'Paramètres' : language === 'ar' ? 'الإعدادات' : 'Settings'}</h2>
+                    <div className={styles.headerTitle}>
+                        {showSources && <button type="button" onClick={() => setShowSources(false)} className={styles.backToSettings}><ArrowLeft size={16} aria-hidden="true" />{language === 'fr' ? 'Retour aux paramètres' : language === 'ar' ? 'العودة إلى الإعدادات' : 'Back to settings'}</button>}
+                        <h2>{showSources ? (language === 'fr' ? 'À propos et sources' : language === 'ar' ? 'حول ومصادر المحتوى' : 'About and sources') : (language === 'fr' ? 'Paramètres' : language === 'ar' ? 'الإعدادات' : 'Settings')}</h2>
+                    </div>
                     <button onClick={onClose} className={styles.closeBtn}>
                         <X size={20} />
                     </button>
@@ -130,6 +135,7 @@ export default function Settings({ onClose }: SettingsProps) {
 
                 {/* Content */}
                 <div className={styles.modalBody}>
+                    {showSources ? <ContentSources /> : <>
                     {/* Reciter Section */}
                     <div className={styles.section}>
                         <div className={styles.sectionHeader}>
@@ -195,6 +201,14 @@ export default function Settings({ onClose }: SettingsProps) {
                         </div>
                         {backupError && <p role="alert">{backupError}</p>}
                     </div>
+                    <div className={styles.section}>
+                        <button type="button" className={styles.aboutButton} onClick={() => setShowSources(true)}>
+                            <Info size={18} aria-hidden="true" />
+                            <span>{language === 'fr' ? 'À propos et sources du contenu' : language === 'ar' ? 'حول ومصادر المحتوى' : 'About and content sources'}</span>
+                            <span aria-hidden="true">›</span>
+                        </button>
+                    </div>
+                    </>}
                 </div>
 
                 {/* Footer */}
@@ -213,3 +227,4 @@ export default function Settings({ onClose }: SettingsProps) {
         </div>
     );
 }
+

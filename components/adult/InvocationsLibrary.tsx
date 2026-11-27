@@ -4,7 +4,6 @@ import { useState, useMemo } from 'react';
 import styles from './InvocationsLibrary.module.css';
 import { getAllCategories, getAllTopics, getDuasByCategory, getContextualContent, ContextItem, CATEGORY_TRANSLATIONS, CATEGORY_TITLES } from '@/lib/context-engine';
 import ContextCard from './ContextCard';
-import OpenDuaAttribution from './OpenDuaAttribution';
 import { useI18n } from '@/lib/i18n-context';
 import {
     Search, Book, Compass, ArrowLeft,
@@ -359,7 +358,7 @@ export default function InvocationsLibrary() {
                     </div>
                 </div>
             )}
-            <OpenDuaAttribution />
         </div>
     );
 }
+

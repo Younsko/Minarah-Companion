@@ -5,9 +5,11 @@ Minarah is a local-first daily companion for Quran reading, duas, and configurab
 ## Current scope
 
 - Quran reader backed by the repository’s local surah files. Reading position, favorites, and preferences are stored in the browser.
-- Prayer times calculated on-device with [Adhan JS](https://github.com/batoulapps/adhan-js). The user chooses the calculation method, Fajr/Isha angles when using custom angles, Asr madhab, location, IANA time zone, and minute adjustments.
+- Prayer times calculated on-device with [Adhan JS](https://github.com/batoulapps/adhan-js). Address search returns coordinates; the IANA time zone is then detected locally from those coordinates with an offline lookup dataset. Users can override it, choose the calculation method and Asr madhab, set custom Fajr/Isha angles, and apply minute adjustments.
 - Optional Mawaqit iframe: a user supplies an official mosque widget link and explicitly consents before it loads. Local prayer calculations remain available independently.
 - Browser-only settings and progress with versioned JSON export/import.
+- Daily prayer progress follows the selected location's calendar date.
+- Content sources and licenses are collected in Settings → About and content sources instead of repeated on every dua page.
 - Installable PWA with an offline cache for the local Quran files.
 - No account, application database, Convex, analytics, or server-side user profile.
 
@@ -26,7 +28,7 @@ The production build is `npm run build`; lint is `npm run lint`.
 
 ## Privacy
 
-Prayer calculations happen in the browser. Coordinates and location labels are written to the local Minarah store. Geolocation is requested only after the user presses the GPS button. They are not sent to a calculation service. The optional Mawaqit widget is a third-party page and loads only after the user supplies a URL and checks its consent box; the URL must use an HTTPS `mawaqit.net` host.
+Prayer calculations and coordinate-to-time-zone lookup happen in the browser. Coordinates and location labels are written to the local Minarah store. Geolocation is requested only after the user presses the GPS button. Address queries are sent to Photon (Komoot) only after the user submits the search; selected coordinates are not sent to the prayer calculation or time-zone lookup. The optional Mawaqit widget is a third-party page and loads only after the user supplies a URL and checks its consent box; the URL must use an HTTPS `mawaqit.net` host.
 
 The static site host still serves the application code and bundled content. It does not receive Minarah settings or progress as application data. Audio playback, when used, streams from its configured audio provider.
 

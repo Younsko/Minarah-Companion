@@ -5,7 +5,6 @@ import styles from './DailyDua.module.css';
 import { RefreshCw, Hand } from 'lucide-react';
 import { useI18n } from '@/lib/i18n-context';
 import { CONTEXT_DB, ContextItem } from '@/lib/context-engine';
-import OpenDuaAttribution from './OpenDuaAttribution';
 import { getFrenchDuaTranslationLabel } from '@/lib/dua-translation-label';
 
 export default function DailyDua() {
@@ -48,7 +47,7 @@ export default function DailyDua() {
             )}
             <p className={styles.translation} lang={displayedLanguage}>{displayedTranslation}</p>
             <span className={styles.source}>{dua.source}</span>
-            <OpenDuaAttribution />
         </div>
     );
 }
+

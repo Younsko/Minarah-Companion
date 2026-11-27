@@ -5,11 +5,12 @@ import { useState, useEffect } from 'react';
 import styles from './PrayerChecklist.module.css';
 import { Check, Circle, Sun, Sunrise, Clock, Sunset, Moon } from 'lucide-react';
 import { useI18n } from '@/lib/i18n-context';
+import { calendarDayKeyInTimeZone } from '@/lib/prayer-date.mjs';
 
 const PRAYERS = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'] as const;
 type Prayer = typeof PRAYERS[number];
 type PrayerKey = Prayer;
-type Props = { prayerTimes?: Record<PrayerKey, string>; nextPrayer?: PrayerKey };
+type Props = { prayerTimes?: Record<PrayerKey, string>; nextPrayer?: PrayerKey; timeZone?: string };
 
 const PRAYER_ICONS: Record<Prayer, React.ReactNode> = {
     fajr: <Sunrise size={16} />,
@@ -27,7 +28,28 @@ const PRAYER_NAMES: Record<Prayer, { en: string; fr: string; ar: string }> = {
     isha: { en: 'Isha', fr: 'Isha', ar: 'العشاء' },
 };
 
-export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
+function formatDateLabels(now: Date, timeZone: string, language: string) {
+    const locale = language === 'fr' ? 'fr-FR' : language === 'ar' ? 'ar-SA' : 'en-US';
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', timeZone };
+    let gregorian = now.toLocaleDateString(locale, options);
+    if (language === 'fr') {
+        const parts = gregorian.split(' ');
+        parts[0] = parts[0].charAt(0).toUpperCase() + parts[0].slice(1);
+        if (parts.length > 2) parts[2] = parts[2].charAt(0).toUpperCase() + parts[2].slice(1);
+        gregorian = parts.join(' ');
+    }
+    let hijri = '';
+    try {
+        hijri = new Intl.DateTimeFormat(language === 'ar' ? 'ar-SA-u-ca-islamic' : 'en-US-u-ca-islamic', {
+            day: 'numeric', month: 'long', year: 'numeric', timeZone,
+        }).format(now);
+        hijri = hijri.replace(/\s*B\.?C\.?E?\.?\s*/gi, ' ').replace(/\s*A\.?H\.?\s*/gi, ' AH ');
+        if (!hijri.includes('AH') && !hijri.includes('هـ')) hijri = hijri.replace(/(\d{4})/, '$1 AH');
+    } catch { /* Some browsers may not include the requested Hijri calendar. */ }
+    return { gregorian, hijri: hijri.trim() };
+}
+
+export default function PrayerChecklist({ prayerTimes, nextPrayer, timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC' }: Props) {
     const { language } = useI18n();
     const [prayersCompleted, setPrayersCompleted] = useState<Record<Prayer, boolean>>({
         fajr: false,
@@ -36,71 +58,24 @@ export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
         maghrib: false,
         isha: false,
     });
-    const [hijriDate, setHijriDate] = useState<string>('');
-    const [gregorianDate, setGregorianDate] = useState<string>('');
+    const dayKey = calendarDayKeyInTimeZone(new Date(), timeZone);
+    const dateLabels = formatDateLabels(new Date(), timeZone, language);
 
     useEffect(() => {
-        // Load saved prayers for today
-        const today = new Date().toISOString().split('T')[0];
-        const saved = localState.getItem(`minarah-prayers-${today}`);
-        if (saved) {
-            setPrayersCompleted(JSON.parse(saved));
-        }
-
-        // Set dates
-        updateDates();
-    }, [language]);
-
-    const updateDates = () => {
-        const now = new Date();
-
-        // Gregorian date with proper capitalization
-        const options: Intl.DateTimeFormatOptions = {
-            weekday: 'long',
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric'
-        };
-        const locale = language === 'fr' ? 'fr-FR' : language === 'ar' ? 'ar-SA' : 'en-US';
-        let gregDate = now.toLocaleDateString(locale, options);
-
-        // Capitalize first letter of day and month in French
-        if (language === 'fr') {
-            const parts = gregDate.split(' ');
-            parts[0] = parts[0].charAt(0).toUpperCase() + parts[0].slice(1); // Day
-            if (parts.length > 2) {
-                parts[2] = parts[2].charAt(0).toUpperCase() + parts[2].slice(1); // Month
-            }
-            gregDate = parts.join(' ');
-        }
-        setGregorianDate(gregDate);
-
-        // Hijri date with proper format
+        const utcToday = new Date().toISOString().split('T')[0];
+        const saved = localState.getItem(`minarah-prayers-${dayKey}`) || (dayKey !== utcToday ? localState.getItem(`minarah-prayers-${utcToday}`) : null);
         try {
-            const hijriFormatter = new Intl.DateTimeFormat(
-                language === 'ar' ? 'ar-SA-u-ca-islamic' : 'en-US-u-ca-islamic',
-                {
-                    day: 'numeric',
-                    month: 'long',
-                    year: 'numeric',
-                }
-            );
-            let hijri = hijriFormatter.format(now);
-            // Replace any BC/BCE with AH (After Hijra)
-            hijri = hijri.replace(/\s*B\.?C\.?E?\.?\s*/gi, ' ').replace(/\s*A\.?H\.?\s*/gi, ' AH ');
-            // If year doesn't have AH, add it
-            if (!hijri.includes('AH') && !hijri.includes('هـ')) {
-                hijri = hijri.replace(/(\d{4})/, '$1 AH');
-            }
-            setHijriDate(hijri.trim());
+            const parsed = saved ? JSON.parse(saved) : null;
+            const valid = Object.fromEntries(PRAYERS.map(prayer => [prayer, parsed?.[prayer] === true])) as Record<Prayer, boolean>;
+            setPrayersCompleted(valid);
+            if (saved && !localState.getItem(`minarah-prayers-${dayKey}`)) localState.setItem(`minarah-prayers-${dayKey}`, JSON.stringify(valid));
         } catch {
-            // Fallback
-            setHijriDate('');
+            setPrayersCompleted({ fajr: false, dhuhr: false, asr: false, maghrib: false, isha: false });
         }
-    };
+    }, [dayKey, timeZone]);
 
     const togglePrayer = (prayer: Prayer) => {
-        const today = new Date().toISOString().split('T')[0];
+        const today = calendarDayKeyInTimeZone(new Date(), timeZone);
         const updated = { ...prayersCompleted, [prayer]: !prayersCompleted[prayer] };
         setPrayersCompleted(updated);
         localState.setItem(`minarah-prayers-${today}`, JSON.stringify(updated));
@@ -113,8 +88,8 @@ export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
         <div className={styles.container}>
             {/* Date Display */}
             <div className={styles.dateSection}>
-                <div className={styles.hijriDate}>🌙 {hijriDate}</div>
-                <div className={styles.gregorianDate}>{gregorianDate}</div>
+                <div className={styles.hijriDate}>🌙 {dateLabels.hijri}</div>
+                <div className={styles.gregorianDate}>{dateLabels.gregorian}</div>
             </div>
 
             {/* Prayer Checklist */}
@@ -147,7 +122,7 @@ export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
                             </span>
                             <strong className={styles.prayerTime}>{prayerTimes?.[prayer] || '—'}</strong>
                             <div className={styles.checkCircle}>
-                                {prayersCompleted[prayer] ? <Check size={14} /> : <Circle size={14} />}
+                            {prayersCompleted[prayer] ? <Check size={14} /> : <Circle size={14} />}
                             </div>
                         </button>
                     ))}
@@ -162,3 +137,4 @@ export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
         </div>
     );
 }
+
