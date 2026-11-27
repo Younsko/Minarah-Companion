@@ -1,5 +1,5 @@
-const VERSION = 'minarah-v1';
-const CORE = ['/', '/manifest.webmanifest'];
+const VERSION = 'minarah-v2';
+const CORE = ['/', '/manifest.webmanifest', '/data/quran/surahs.json'];
 const QURAN = Array.from({ length: 114 }, (_, index) => `/data/quran/surah-${index + 1}.json`);
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(VERSION).then(async cache => {

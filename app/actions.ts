@@ -18,8 +18,12 @@ export async function fetchSurah(number: number): Promise<SurahFile | null> {
 }
 
 export async function fetchSurahList(): Promise<SurahInfo[]> {
-  const file = await fetchSurah(1);
-  return file?.length ? file.map(({ number, name, englishName, englishNameTranslation, numberOfAyahs, revelationType }) => ({ number, name, englishName, englishNameTranslation, numberOfAyahs, revelationType })) : [];
+  try {
+    const response = await fetch('/data/quran/surahs.json');
+    if (!response.ok) return [];
+    const surahs = await response.json() as SurahInfo[];
+    return Array.isArray(surahs) && surahs.length === 114 ? surahs : [];
+  } catch { return []; }
 }
 
 export async function fetchRandomAyah(): Promise<QuranAyah | null> {

@@ -1022,7 +1022,6 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                                                             style={{ fontSize: `${Math.max(16, fontSize * 0.6)}px` }}
                                                         >
                                                             {translation.text}
-                                                            {translation.footnotes && <small> {translation.footnotes}</small>}
                                                         </div>
                                                     )}
                                                 </div>
