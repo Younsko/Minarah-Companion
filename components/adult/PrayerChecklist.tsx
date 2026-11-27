@@ -8,6 +8,8 @@ import { useI18n } from '@/lib/i18n-context';
 
 const PRAYERS = ['fajr', 'dhuhr', 'asr', 'maghrib', 'isha'] as const;
 type Prayer = typeof PRAYERS[number];
+type PrayerKey = Prayer;
+type Props = { prayerTimes?: Record<PrayerKey, string>; nextPrayer?: PrayerKey };
 
 const PRAYER_ICONS: Record<Prayer, React.ReactNode> = {
     fajr: <Sunrise size={16} />,
@@ -25,7 +27,7 @@ const PRAYER_NAMES: Record<Prayer, { en: string; fr: string; ar: string }> = {
     isha: { en: 'Isha', fr: 'Isha', ar: 'العشاء' },
 };
 
-export default function PrayerChecklist() {
+export default function PrayerChecklist({ prayerTimes, nextPrayer }: Props) {
     const { language } = useI18n();
     const [prayersCompleted, setPrayersCompleted] = useState<Record<Prayer, boolean>>({
         fajr: false,
@@ -132,8 +134,10 @@ export default function PrayerChecklist() {
                     {PRAYERS.map(prayer => (
                         <button
                             key={prayer}
-                            className={`${styles.prayerItem} ${prayersCompleted[prayer] ? styles.completed : ''}`}
+                            className={`${styles.prayerItem} ${prayer === nextPrayer ? styles.nextPrayer : ''} ${prayersCompleted[prayer] ? styles.completed : ''}`}
                             onClick={() => togglePrayer(prayer)}
+                            aria-pressed={prayersCompleted[prayer]}
+                            aria-label={`${PRAYER_NAMES[prayer][language as keyof typeof PRAYER_NAMES.fajr] || PRAYER_NAMES[prayer].en}${prayerTimes?.[prayer] ? `, ${prayerTimes[prayer]}` : ''}${prayersCompleted[prayer] ? ', completed' : ''}`}
                         >
                             <div className={styles.prayerIcon}>
                                 {PRAYER_ICONS[prayer]}
@@ -141,6 +145,7 @@ export default function PrayerChecklist() {
                             <span className={styles.prayerName}>
                                 {PRAYER_NAMES[prayer][language as keyof typeof PRAYER_NAMES.fajr] || PRAYER_NAMES[prayer].en}
                             </span>
+                            <strong className={styles.prayerTime}>{prayerTimes?.[prayer] || '—'}</strong>
                             <div className={styles.checkCircle}>
                                 {prayersCompleted[prayer] ? <Check size={14} /> : <Circle size={14} />}
                             </div>

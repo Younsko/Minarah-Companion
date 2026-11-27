@@ -16,7 +16,6 @@ import { useI18n } from '@/lib/i18n-context';
 import { cleanVerseTranslation } from '@/lib/quran-format';
 import RamadanTracker from './RamadanTracker';
 import FavoritesSection from './FavoritesSection';
-import PrayerChecklist from './PrayerChecklist';
 import PrayerTimesPanel from './PrayerTimesPanel';
 import DailyDua from './DailyDua';
 
@@ -252,7 +251,6 @@ export default function AdultDashboard() {
                                 {/* Prayer Checklist with Date */}
                                 <div className={styles.card}>
                                     <PrayerTimesPanel />
-                                    <PrayerChecklist />
                                 </div>
 
                                 {/* Verse of the Day */}

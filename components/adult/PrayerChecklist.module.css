@@ -1,25 +1,29 @@
 .container {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 0.65rem;
 }
 
 /* Date Section */
 .dateSection {
     text-align: center;
-    padding-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: .6rem;
+    padding: .35rem 0 .55rem;
     border-bottom: 1px solid var(--color-border);
 }
 
 .hijriDate {
-    font-size: 1.1rem;
+    font-size: .9rem;
     font-weight: 600;
     color: var(--color-primary);
-    margin-bottom: 0.25rem;
+    margin: 0;
 }
 
 .gregorianDate {
-    font-size: 0.85rem;
+    font-size: .74rem;
     color: var(--color-text-muted);
 }
 
@@ -27,7 +31,7 @@
 .checklistSection {
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: .55rem;
 }
 
 .checklistHeader {
@@ -49,7 +53,7 @@
 
 /* Progress Bar */
 .progressBar {
-    height: 6px;
+    height: 4px;
     background: var(--color-bg);
     border-radius: 3px;
     overflow: hidden;
@@ -73,18 +77,23 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.35rem;
-    padding: 0.75rem 0.5rem;
+    gap: .22rem;
+    padding: .58rem .4rem;
     background: var(--color-bg);
     border: 1px solid var(--color-border);
-    border-radius: 12px;
+    border-radius: 11px;
     cursor: pointer;
     transition: all 0.2s;
 }
 
 .prayerItem:hover {
     border-color: var(--color-primary);
-    transform: translateY(-2px);
+    background: rgba(139, 195, 74, .08);
+}
+
+.prayerItem.nextPrayer {
+    border-color: var(--color-primary);
+    box-shadow: inset 0 0 0 1px rgba(139, 195, 74, .32);
 }
 
 .prayerItem.completed {
@@ -102,8 +111,14 @@
 }
 
 .prayerName {
-    font-size: 0.7rem;
+    font-size: .7rem;
     font-weight: 500;
+    color: var(--color-text);
+}
+
+.prayerTime {
+    font-size: .82rem;
+    font-variant-numeric: tabular-nums;
     color: var(--color-text);
 }
 
@@ -120,12 +135,12 @@
 /* Celebration Message */
 .celebration {
     text-align: center;
-    padding: 0.75rem;
+    padding: .5rem;
     background: linear-gradient(135deg, rgba(139, 195, 74, 0.1), rgba(76, 175, 80, 0.1));
     border-radius: 12px;
     color: var(--color-primary);
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: .78rem;
 }
 
 /* Mobile */
@@ -135,10 +150,18 @@
     }
 
     .prayerItem {
-        padding: 0.6rem 0.25rem;
+        padding: .5rem .12rem;
     }
 
     .prayerName {
         font-size: 0.6rem;
     }
+    .prayerTime { font-size: .74rem; }
+}
+
+@media (max-width: 520px) {
+    .dateSection { flex-wrap: wrap; justify-content: center; column-gap: .35rem; row-gap: .12rem; }
+    .hijriDate,.gregorianDate { font-size: .74rem; }
+    .prayerList { gap: .35rem; }
+    .prayerItem { min-width: 0; }
 }
