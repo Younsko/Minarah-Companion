@@ -1,10 +1,13 @@
-"""Filter an OpenDua v0.0.4 catalogue to fields covered by its CC BY 4.0 licence.
+"""Filter an OpenDua v0.0.4 catalogue for Minarah, keeping religious source text distinct.
 
 Usage: python scripts/import-opendua.py <catalogue.json>
 
-Arabic and source religious text are deliberately excluded. The generated file
-contains OpenDua's English translation, transliteration, editorial title, tags,
-and source references, plus the required dataset version and licence metadata.
+The generated file includes OpenDua's licensed English translation,
+transliteration, editorial title, tags and source references. It also includes
+the source Arabic recitations attributed to Hisn al-Muslim / Quran and Sunnah;
+OpenDua expressly does not claim rights over those underlying religious texts.
+French translations are read from the separately attributed mapping file when
+present. Those strings are copied verbatim from the IslamHouse French edition.
 """
 
 from __future__ import annotations
@@ -28,6 +31,9 @@ def main() -> None:
 
     chapter_titles = {chapter["id"]: chapter["title"] for chapter in source["chapters"]}
     tag_titles = {tag["id"]: tag["title"] for tag in source["tags"]}
+    french_source_path = ROOT / "public" / "data" / "islamhouse-fr-translations.json"
+    french_source = json.loads(french_source_path.read_text(encoding="utf-8"))
+    french_translations = french_source["translations"]
     contexts: dict[str, dict[str, Any]] = {}
 
     for entry in source["entries"]:
@@ -57,20 +63,28 @@ def main() -> None:
         context = contexts.get(identifier, {})
         translation = dua.get("translation")
         transliteration = dua.get("transliteration")
+        arabic = dua.get("arabic")
         if not isinstance(translation, str) or not translation.strip():
             raise ValueError(f"Missing English translation for {identifier}")
         if not isinstance(transliteration, str) or not transliteration.strip():
             raise ValueError(f"Missing transliteration for {identifier}")
-        records.append({
+        if not isinstance(arabic, str) or not arabic.strip():
+            raise ValueError(f"Missing source Arabic for {identifier}")
+        record = {
             "id": identifier,
             "title": context.get("title") or "Remembrance",
             "chapter": context.get("chapter") or "Dhikr and praise",
+            "arabic": arabic,
             "translation": translation,
             "transliteration": transliteration,
+            "translationLanguage": "en",
             "tags": context.get("tags") or ["dhikr-and-praise"],
             "sourceReference": context.get("sourceReference"),
             "references": context.get("references", []),
-        })
+        }
+        if identifier in french_translations:
+            record["translations"] = {"fr": french_translations[identifier]}
+        records.append(record)
 
     if len(records) != 262:
         raise ValueError(f"Expected 262 licensed OpenDua canonical duas, got {len(records)}")
@@ -88,11 +102,15 @@ def main() -> None:
             "OpenDua editorial text, dataset structure and the recitation by Muhammad Jumah "
             "are licensed CC BY 4.0. OpenDua makes no ownership claim over the underlying religious texts."
         ),
+        "frenchTranslationSource": {
+            key: french_source[key]
+            for key in ("source", "terms", "edition", "redistribution")
+        },
         "duas": records,
     }
     target = ROOT / "public" / "data" / "opendua-v0.0.4.json"
     target.write_text(json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"Wrote {len(records)} English/transliteration records; excluded all Arabic fields.")
+    print(f"Wrote {len(records)} Arabic, transliteration and English records.")
 
 
 if __name__ == "__main__":

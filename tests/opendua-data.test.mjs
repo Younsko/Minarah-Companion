@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-test('bundled OpenDua edition contains only CC BY 4.0 editorial fields', async () => {
+test('bundled OpenDua edition preserves attribution and separates source Arabic from licensed editorial fields', async () => {
   const data = JSON.parse(await readFile(new URL('../public/data/opendua-v0.0.4.json', import.meta.url), 'utf8'));
   assert.equal(data.dataset, 'OpenDua');
   assert.equal(data.version, '0.0.4');
@@ -10,12 +10,20 @@ test('bundled OpenDua edition contains only CC BY 4.0 editorial fields', async (
   assert.equal(data.duas.length, 262);
   assert.match(data.attribution, /Hisn al-Muslim/);
   assert.match(data.attribution, /CC BY 4\.0/);
+  assert.match(data.frenchTranslationSource.redistribution, /without changing scholarly content/i);
   for (const dua of data.duas) {
     assert.ok(dua.id);
     assert.ok(dua.title);
+    assert.ok(dua.arabic);
     assert.ok(dua.translation);
     assert.ok(dua.transliteration);
+    assert.equal(dua.translationLanguage, 'en');
     assert.ok(dua.tags.length > 0);
-    assert.equal(Object.hasOwn(dua, 'arabic'), false);
+  }
+  const frenchDuas = data.duas.filter(dua => typeof dua.translations?.fr?.text === 'string');
+  assert.equal(frenchDuas.length, 179);
+  for (const dua of frenchDuas) {
+    assert.ok(dua.translations.fr.text.trim());
+    assert.match(dua.translations.fr.source, /IslamHouse/);
   }
 });

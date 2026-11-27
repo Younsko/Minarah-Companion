@@ -10,8 +10,11 @@ export interface ContextItem {
   source?: string;
   tags: string[];
   references?: Array<{ text?: string; [key: string]: unknown }>;
-  translations?: { en?: { text?: string }; fr?: { text?: string } };
-  translationLanguage: 'en';
+  translations?: {
+    en?: { text?: string };
+    fr?: { text?: string; source?: string };
+  };
+  translationLanguage: 'en' | 'fr';
 }
 
 export interface ContextRequest {
@@ -67,11 +70,15 @@ export const CONTEXT_DB: ContextItem[] = openDua.duas.map(dua => ({
   type: 'dua',
   title: dua.title,
   text: dua.translation,
+  arabic: dua.arabic,
   transliteration: dua.transliteration,
   source: dua.sourceReference ? `Hisn al-Muslim ${dua.sourceReference} · OpenDua v${openDua.version}` : `Hisn al-Muslim · OpenDua v${openDua.version}`,
   tags: dua.tags,
   references: dua.references,
-  translations: { en: { text: dua.translation } },
+  translations: {
+    en: { text: dua.translation },
+    fr: dua.translations?.fr,
+  },
   translationLanguage: 'en',
 }));
 

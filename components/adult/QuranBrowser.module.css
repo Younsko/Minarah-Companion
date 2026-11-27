@@ -402,6 +402,40 @@
     opacity: 0.85;
 }
 
+.returnToAyah {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 0.65rem);
+    transform: translateX(-50%);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    min-height: 40px;
+    padding: 0.55rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: var(--color-surface);
+    color: var(--color-text);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background-color 160ms ease, border-color 160ms ease, transform 160ms ease;
+}
+
+.returnToAyah:hover {
+    background: var(--color-bg);
+    border-color: var(--color-primary);
+}
+
+.returnToAyah:focus-visible {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 3px;
+}
+
 .floatingPlayer:hover,
 .floatingPlayer.playerActive {
     opacity: 1;

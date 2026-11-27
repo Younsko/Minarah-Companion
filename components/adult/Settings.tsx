@@ -182,9 +182,16 @@ export default function Settings({ onClose }: SettingsProps) {
                     <div className={styles.section}>
                         <div className={styles.sectionHeader}><span>{language === 'fr' ? 'Sauvegarde locale' : language === 'ar' ? 'نسخة احتياطية محلية' : 'Local backup'}</span></div>
                         <p>{language === 'fr' ? 'Les réglages et progressions restent sur cet appareil. Exporte-les pour les transférer ou les sauvegarder.' : language === 'ar' ? 'تبقى الإعدادات والتقدم على هذا الجهاز.' : 'Settings and progress stay on this device. Export them to transfer or back them up.'}</p>
-                        <div style={{ display: 'flex', gap: 10, flexWrap: 'wrap' }}>
-                            <button type="button" onClick={exportBackup} className={styles.closeBtn}><Download size={16} /> {language === 'fr' ? 'Exporter' : 'Export'}</button>
-                            <label className={styles.closeBtn} style={{ display: 'inline-flex', gap: 6, alignItems: 'center', cursor: 'pointer' }}><Upload size={16} /> {language === 'fr' ? 'Importer' : 'Import'}<input type="file" accept="application/json,.json" hidden onChange={e => void importBackup(e.target.files?.[0])}/></label>
+                        <div className={styles.backupActions}>
+                            <button type="button" onClick={exportBackup} className={styles.backupAction}>
+                                <Download size={17} aria-hidden="true" />
+                                <span>{language === 'fr' ? 'Exporter' : language === 'ar' ? 'تصدير' : 'Export'}</span>
+                            </button>
+                            <label className={styles.backupAction}>
+                                <Upload size={17} aria-hidden="true" />
+                                <span>{language === 'fr' ? 'Importer' : language === 'ar' ? 'استيراد' : 'Import'}</span>
+                                <input type="file" accept="application/json,.json" onChange={e => void importBackup(e.target.files?.[0])} />
+                            </label>
                         </div>
                         {backupError && <p role="alert">{backupError}</p>}
                     </div>

@@ -3,7 +3,7 @@ import { localState } from '@/lib/local-state';
 
 import { useState, useEffect, useRef } from 'react';
 import styles from './QuranBrowser.module.css';
-import { Search, Play, Pause, ChevronLeft, BookOpen, Bookmark, ArrowRight, Plus, Minus, Repeat2, Star, Volume2, VolumeX, SkipForward, SkipBack } from 'lucide-react';
+import { Search, Play, Pause, ChevronLeft, BookOpen, Bookmark, ArrowRight, Plus, Minus, Repeat2, Star, Volume2, VolumeX, SkipForward, SkipBack, LocateFixed } from 'lucide-react';
 import { fetchSurahList } from '@/app/actions';
 import { useI18n } from '@/lib/i18n-context';
 import { RECITERS, getDefaultReciter } from '@/lib/reciters';
@@ -51,6 +51,8 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
     const [filteredSurahs, setFilteredSurahs] = useState<Surah[]>([]);
     const [searchQuery, setSearchQuery] = useState('');
     const [selectedSurah, setSelectedSurah] = useState<Surah | null>(null);
+    const [freeView, setFreeView] = useState(false);
+    const containerRef = useRef<HTMLDivElement | null>(null);
     const [lastRead, setLastRead] = useState<LastRead | null>(null);
     const [favoritesVersion, setFavoritesVersion] = useState(0); // For forcing re-render on favorite change
 
@@ -111,6 +113,21 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
     const [loopVerse, setLoopVerse] = useState<number | null>(null); // Verse number to loop, null if not looping
     const [volume, setVolume] = useState(0.8); // Volume 0-1
 
+    const scrollQuranToTop = () => {
+        const root = containerRef.current;
+        if (!root) return;
+        let parent = root.parentElement;
+        while (parent) {
+            const overflowY = window.getComputedStyle(parent).overflowY;
+            if (/(auto|scroll|overlay)/.test(overflowY) && parent.scrollHeight > parent.clientHeight) {
+                parent.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            parent = parent.parentElement;
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
     // Navigation on Load Logic
     const pendingScrollRef = useRef<{ ayahNumber: number } | null>(null);
 
@@ -141,6 +158,53 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
     useEffect(() => {
         setVisibleVersesCount(10);
     }, [selectedSurah]);
+
+    useEffect(() => {
+        if (!selectedSurah) return;
+        const frame = window.requestAnimationFrame(scrollQuranToTop);
+        return () => window.cancelAnimationFrame(frame);
+    }, [selectedSurah]);
+
+    useEffect(() => {
+        const root = containerRef.current;
+        if (!root) return;
+        const allowFreeView = () => {
+            if (isPlaying) setFreeView(true);
+        };
+        const allowFreeViewFromKeyboard = (event: KeyboardEvent) => {
+            const target = event.target;
+            const isTyping = target instanceof HTMLElement && (target.isContentEditable || /^(INPUT|TEXTAREA|SELECT|BUTTON)$/.test(target.tagName));
+            if (isPlaying && !isTyping && ['ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End', ' '].includes(event.key)) {
+                setFreeView(true);
+            }
+        };
+        const allowFreeViewFromScrollbar = (event: PointerEvent) => {
+            const scrollable = (() => {
+                let parent = root.parentElement;
+                while (parent) {
+                    const overflowY = window.getComputedStyle(parent).overflowY;
+                    if (/(auto|scroll|overlay)/.test(overflowY) && parent.scrollHeight > parent.clientHeight) return parent;
+                    parent = parent.parentElement;
+                }
+                return null;
+            })();
+            if (!isPlaying || !scrollable) return;
+            const bounds = scrollable.getBoundingClientRect();
+            if (event.clientX >= bounds.right - 18 && event.clientX <= bounds.right && event.clientY >= bounds.top && event.clientY <= bounds.bottom) {
+                setFreeView(true);
+            }
+        };
+        window.addEventListener('wheel', allowFreeView, { passive: true });
+        document.addEventListener('touchmove', allowFreeView, { passive: true });
+        document.addEventListener('keydown', allowFreeViewFromKeyboard);
+        window.addEventListener('pointerdown', allowFreeViewFromScrollbar);
+        return () => {
+            window.removeEventListener('wheel', allowFreeView);
+            document.removeEventListener('touchmove', allowFreeView);
+            document.removeEventListener('keydown', allowFreeViewFromKeyboard);
+            window.removeEventListener('pointerdown', allowFreeViewFromScrollbar);
+        };
+    }, [isPlaying]);
 
     // Infinite Scroll Logic
     useEffect(() => {
@@ -267,21 +331,15 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                 const ayah = ayahs[currentAyahIndex];
                 const ayahNumber = ayah.numberInSurah;
 
-                // Ensure the verse is rendered before trying to scroll
-                if (ayahNumber > visibleVersesCount) {
-                    setVisibleVersesCount(ayahNumber + 5);
-                    // Delay scroll to allow DOM to update
-                    setTimeout(() => {
-                        const element = document.getElementById(`ayah-${ayahNumber}`);
-                        if (element) {
-                            element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                        }
-                    }, 100);
-                } else {
-                    // Verse should already be rendered, scroll immediately
-                    const element = document.getElementById(`ayah-${ayahNumber}`);
-                    if (element) {
-                        element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                // Let the listener take control of the reading position while playback continues.
+                if (!freeView) {
+                    if (ayahNumber > visibleVersesCount) {
+                        setVisibleVersesCount(ayahNumber + 5);
+                        setTimeout(() => {
+                            document.getElementById(`ayah-${ayahNumber}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }, 100);
+                    } else {
+                        document.getElementById(`ayah-${ayahNumber}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     }
                 }
 
@@ -291,7 +349,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                 }
             }
         }
-    }, [currentAyahIndex, cachedSurahData, selectedSurah, visibleVersesCount]);
+    }, [currentAyahIndex, cachedSurahData, selectedSurah, visibleVersesCount, freeView]);
 
     useEffect(() => {
         if (searchQuery) {
@@ -308,6 +366,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
 
     const handleSurahClick = (surah: Surah) => {
         setSelectedSurah(surah);
+        setFreeView(false);
         setSearchQuery('');
         // Reset audio
         setIsPlaying(false);
@@ -321,6 +380,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
 
     const handleBackToList = () => {
         setSelectedSurah(null);
+        setFreeView(false);
         setSearchQuery('');
         setIsPlaying(false);
         setPlayingBismillah(false);
@@ -335,6 +395,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
             if (surah) {
                 // Navigate to surah but preserve the ayah to resume from
                 setSelectedSurah(surah);
+                setFreeView(false);
                 setSearchQuery('');
                 // Set currentAyahIndex based on lastRead so play button resumes from there
                 // We subtract 1 because ayahNumber is 1-indexed but array index is 0-indexed
@@ -351,6 +412,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
     };
 
     const scrollToAyah = (ayahNumber: number) => {
+        setFreeView(false);
         const element = document.getElementById(`ayah-${ayahNumber}`);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -373,6 +435,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
 
     const playAudio = async (index: number) => {
         if (!cachedSurahData || !cachedSurahData[0]) return;
+        setFreeView(false);
 
         // If clicking the same ayah that is currently playing/paused
         if (currentAyahIndex === index) {
@@ -600,7 +663,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
 
     // Render Quran View
     return (
-        <div className={styles.container}>
+        <div className={styles.container} ref={containerRef}>
 
             <audio
                 ref={audioRef}
@@ -778,6 +841,19 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
             {/* Floating Audio Player */}
             {selectedSurah && (
                 <div className={`${styles.floatingPlayer} ${isPlaying ? styles.playerActive : ''}`}>
+                    {isPlaying && freeView && currentAyahIndex >= 0 && (
+                        <button
+                            type="button"
+                            className={styles.returnToAyah}
+                            onClick={() => scrollToAyah(currentAyahIndex + 1)}
+                            aria-label={language === 'fr' ? 'Revenir au verset en cours' : 'Return to the verse in progress'}
+                        >
+                            <LocateFixed size={16} />
+                            <span className={styles.freeViewLabel}>{language === 'fr' ? 'Vue libre' : language === 'ar' ? 'عرض حر' : 'Free view'}</span>
+                            <span aria-hidden="true">·</span>
+                            <span>{language === 'fr' ? 'Revenir au verset' : language === 'ar' ? 'العودة إلى الآية' : 'Return to verse'}</span>
+                        </button>
+                    )}
                     <div className={styles.playerContent}>
                         {/* Current Info */}
                         <div className={styles.playerInfo}>
@@ -1021,7 +1097,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                                                             className={styles.translationText}
                                                             style={{ fontSize: `${Math.max(16, fontSize * 0.6)}px` }}
                                                         >
-                                                            {translation.text.replace(/\[\d+\]/g, '').trim()}
+                                                            {translation.text.replace(/^\s*(?:\(\d+\)|\d+\.)\s*/, '').replace(/\[\d+\]/g, '').trim()}
                                                         </div>
                                                     )}
                                                 </div>
