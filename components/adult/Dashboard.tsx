@@ -269,7 +269,7 @@ export default function AdultDashboard() {
                                                 'translations' in dailyContent.content && dailyContent.content.translations ? (
                                                     <p className={styles.translation}>
                                                         {/* ContextItem specific translation */}
-                                                        {dailyContent.content.translations?.[language]?.text || dailyContent.content.translations?.fr?.text || dailyContent.content.text}
+                                                        {cleanVerseTranslation(dailyContent.content.translations?.[language]?.text || dailyContent.content.translations?.fr?.text || dailyContent.content.text)}
                                                     </p>
                                                 ) : 'translation' in dailyContent.content && (
                                                     <p className={styles.translation}>
