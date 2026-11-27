@@ -13,6 +13,7 @@ import QuranBrowser from './QuranBrowser';
 import Settings from './Settings';
 import Loading from '@/components/Loading';
 import { useI18n } from '@/lib/i18n-context';
+import { cleanVerseTranslation } from '@/lib/quran-format';
 import RamadanTracker from './RamadanTracker';
 import FavoritesSection from './FavoritesSection';
 import PrayerChecklist from './PrayerChecklist';
@@ -273,7 +274,7 @@ export default function AdultDashboard() {
                                                 ) : 'translation' in dailyContent.content && (
                                                     <p className={styles.translation}>
                                                         {/* Hadith/Ayah translation */}
-                                                        {dailyContent.content.translation}
+                                                        {cleanVerseTranslation(dailyContent.content.translation)}
                                                     </p>
                                                 )
                                             )}

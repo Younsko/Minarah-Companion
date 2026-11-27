@@ -5,6 +5,7 @@ import { useState, useEffect, useRef } from 'react';
 import styles from './QuranBrowser.module.css';
 import { Search, Play, Pause, ChevronLeft, BookOpen, Bookmark, ArrowRight, Plus, Minus, Repeat2, Star, Volume2, VolumeX, SkipForward, SkipBack, LocateFixed } from 'lucide-react';
 import { fetchSurahList } from '@/app/actions';
+import { cleanVerseTranslation } from '@/lib/quran-format';
 import { useI18n } from '@/lib/i18n-context';
 import { RECITERS, getDefaultReciter } from '@/lib/reciters';
 import CustomSelect from '@/components/CustomSelect';
@@ -1094,7 +1095,7 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                                                             className={styles.translationText}
                                                             style={{ fontSize: `${Math.max(16, fontSize * 0.6)}px` }}
                                                         >
-                                                            {translation.text.replace(/^\s*(?:\(\d+\)|\d+\.)\s*/, '').replace(/\[\d+\]/g, '').trim()}
+                                                            {cleanVerseTranslation(translation.text)}
                                                         </div>
                                                     )}
                                                 </div>
