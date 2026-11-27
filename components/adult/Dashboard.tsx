@@ -161,7 +161,7 @@ export default function AdultDashboard() {
                         </div>
                     )}
                     <div className={styles.headerButtons}>
-                        <button onClick={() => setShowSettings(true)} className={styles.settingsButton} title="Settings">
+                        <button onClick={() => setShowSettings(true)} className={styles.settingsButton} title={language === 'fr' ? 'Paramètres' : language === 'ar' ? 'الإعدادات' : 'Settings'} aria-label={language === 'fr' ? 'Ouvrir les paramètres' : language === 'ar' ? 'فتح الإعدادات' : 'Open settings'}>
                             <SettingsIcon size={20} />
                         </button>
                         <button onClick={toggleLanguage} className={styles.langButton}>

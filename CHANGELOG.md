@@ -9,6 +9,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 ### Added
 
 - A home-screen Quran companion card with a one-tap resume from the saved verse, a gentle 5/10/15-minute daily intention, and a local seven-day reading check-in.
+- Optional 30-, 60-, and 90-step Quran reading paths built from the locally bundled juz metadata, with exact start/end verse references and offline access.
 - Reading check-ins use the same location time zone as the prayer tracker, stay on the device, and are included in local data export/import.
 - The Quran reader now notifies the companion card when its saved reading position changes.
 

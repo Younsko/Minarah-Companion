@@ -1,0 +1,2713 @@
+{
+  "source": "Juz metadata from the bundled AlQuranCloud quran-uthmani edition; the plan adds no interpretation or verse text.",
+  "verseCount": 6236,
+  "juzCount": 30,
+  "plans": {
+    "30": [
+      {
+        "day": 1,
+        "juz": 1,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 1,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 141
+        },
+        "verseCount": 148
+      },
+      {
+        "day": 2,
+        "juz": 2,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 2,
+          "ayah": 142
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 252
+        },
+        "verseCount": 111
+      },
+      {
+        "day": 3,
+        "juz": 3,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 2,
+          "ayah": 253
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 92
+        },
+        "verseCount": 126
+      },
+      {
+        "day": 4,
+        "juz": 4,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 3,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 23
+        },
+        "verseCount": 131
+      },
+      {
+        "day": 5,
+        "juz": 5,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 4,
+          "ayah": 24
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 147
+        },
+        "verseCount": 124
+      },
+      {
+        "day": 6,
+        "juz": 6,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 4,
+          "ayah": 148
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 81
+        },
+        "verseCount": 110
+      },
+      {
+        "day": 7,
+        "juz": 7,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 5,
+          "ayah": 82
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 110
+        },
+        "verseCount": 149
+      },
+      {
+        "day": 8,
+        "juz": 8,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 6,
+          "ayah": 111
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 87
+        },
+        "verseCount": 142
+      },
+      {
+        "day": 9,
+        "juz": 9,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 7,
+          "ayah": 88
+        },
+        "to": {
+          "surah": 8,
+          "ayah": 40
+        },
+        "verseCount": 159
+      },
+      {
+        "day": 10,
+        "juz": 10,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 8,
+          "ayah": 41
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 92
+        },
+        "verseCount": 127
+      },
+      {
+        "day": 11,
+        "juz": 11,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 9,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 5
+        },
+        "verseCount": 151
+      },
+      {
+        "day": 12,
+        "juz": 12,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 11,
+          "ayah": 6
+        },
+        "to": {
+          "surah": 12,
+          "ayah": 52
+        },
+        "verseCount": 170
+      },
+      {
+        "day": 13,
+        "juz": 13,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 12,
+          "ayah": 53
+        },
+        "to": {
+          "surah": 14,
+          "ayah": 52
+        },
+        "verseCount": 154
+      },
+      {
+        "day": 14,
+        "juz": 14,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 15,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 16,
+          "ayah": 128
+        },
+        "verseCount": 227
+      },
+      {
+        "day": 15,
+        "juz": 15,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 17,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 18,
+          "ayah": 74
+        },
+        "verseCount": 185
+      },
+      {
+        "day": 16,
+        "juz": 16,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 18,
+          "ayah": 75
+        },
+        "to": {
+          "surah": 20,
+          "ayah": 135
+        },
+        "verseCount": 269
+      },
+      {
+        "day": 17,
+        "juz": 17,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 21,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 22,
+          "ayah": 78
+        },
+        "verseCount": 190
+      },
+      {
+        "day": 18,
+        "juz": 18,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 23,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 25,
+          "ayah": 20
+        },
+        "verseCount": 202
+      },
+      {
+        "day": 19,
+        "juz": 19,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 25,
+          "ayah": 21
+        },
+        "to": {
+          "surah": 27,
+          "ayah": 55
+        },
+        "verseCount": 339
+      },
+      {
+        "day": 20,
+        "juz": 20,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 27,
+          "ayah": 56
+        },
+        "to": {
+          "surah": 29,
+          "ayah": 45
+        },
+        "verseCount": 171
+      },
+      {
+        "day": 21,
+        "juz": 21,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 29,
+          "ayah": 46
+        },
+        "to": {
+          "surah": 33,
+          "ayah": 30
+        },
+        "verseCount": 178
+      },
+      {
+        "day": 22,
+        "juz": 22,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 33,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 36,
+          "ayah": 27
+        },
+        "verseCount": 169
+      },
+      {
+        "day": 23,
+        "juz": 23,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 36,
+          "ayah": 28
+        },
+        "to": {
+          "surah": 39,
+          "ayah": 31
+        },
+        "verseCount": 357
+      },
+      {
+        "day": 24,
+        "juz": 24,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 39,
+          "ayah": 32
+        },
+        "to": {
+          "surah": 41,
+          "ayah": 46
+        },
+        "verseCount": 175
+      },
+      {
+        "day": 25,
+        "juz": 25,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 41,
+          "ayah": 47
+        },
+        "to": {
+          "surah": 45,
+          "ayah": 37
+        },
+        "verseCount": 246
+      },
+      {
+        "day": 26,
+        "juz": 26,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 46,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 51,
+          "ayah": 30
+        },
+        "verseCount": 195
+      },
+      {
+        "day": 27,
+        "juz": 27,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 51,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 57,
+          "ayah": 29
+        },
+        "verseCount": 399
+      },
+      {
+        "day": 28,
+        "juz": 28,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 58,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 66,
+          "ayah": 12
+        },
+        "verseCount": 137
+      },
+      {
+        "day": 29,
+        "juz": 29,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 67,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 77,
+          "ayah": 50
+        },
+        "verseCount": 431
+      },
+      {
+        "day": 30,
+        "juz": 30,
+        "part": 1,
+        "parts": 1,
+        "from": {
+          "surah": 78,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 114,
+          "ayah": 6
+        },
+        "verseCount": 564
+      }
+    ],
+    "60": [
+      {
+        "day": 1,
+        "juz": 1,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 1,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 67
+        },
+        "verseCount": 74
+      },
+      {
+        "day": 2,
+        "juz": 1,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 2,
+          "ayah": 68
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 141
+        },
+        "verseCount": 74
+      },
+      {
+        "day": 3,
+        "juz": 2,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 2,
+          "ayah": 142
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 197
+        },
+        "verseCount": 56
+      },
+      {
+        "day": 4,
+        "juz": 2,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 2,
+          "ayah": 198
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 252
+        },
+        "verseCount": 55
+      },
+      {
+        "day": 5,
+        "juz": 3,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 2,
+          "ayah": 253
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 29
+        },
+        "verseCount": 63
+      },
+      {
+        "day": 6,
+        "juz": 3,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 3,
+          "ayah": 30
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 92
+        },
+        "verseCount": 63
+      },
+      {
+        "day": 7,
+        "juz": 4,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 3,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 158
+        },
+        "verseCount": 66
+      },
+      {
+        "day": 8,
+        "juz": 4,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 3,
+          "ayah": 159
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 23
+        },
+        "verseCount": 65
+      },
+      {
+        "day": 9,
+        "juz": 5,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 4,
+          "ayah": 24
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 85
+        },
+        "verseCount": 62
+      },
+      {
+        "day": 10,
+        "juz": 5,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 4,
+          "ayah": 86
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 147
+        },
+        "verseCount": 62
+      },
+      {
+        "day": 11,
+        "juz": 6,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 4,
+          "ayah": 148
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 26
+        },
+        "verseCount": 55
+      },
+      {
+        "day": 12,
+        "juz": 6,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 5,
+          "ayah": 27
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 81
+        },
+        "verseCount": 55
+      },
+      {
+        "day": 13,
+        "juz": 7,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 5,
+          "ayah": 82
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 36
+        },
+        "verseCount": 75
+      },
+      {
+        "day": 14,
+        "juz": 7,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 6,
+          "ayah": 37
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 110
+        },
+        "verseCount": 74
+      },
+      {
+        "day": 15,
+        "juz": 8,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 6,
+          "ayah": 111
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 16
+        },
+        "verseCount": 71
+      },
+      {
+        "day": 16,
+        "juz": 8,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 7,
+          "ayah": 17
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 87
+        },
+        "verseCount": 71
+      },
+      {
+        "day": 17,
+        "juz": 9,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 7,
+          "ayah": 88
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 167
+        },
+        "verseCount": 80
+      },
+      {
+        "day": 18,
+        "juz": 9,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 7,
+          "ayah": 168
+        },
+        "to": {
+          "surah": 8,
+          "ayah": 40
+        },
+        "verseCount": 79
+      },
+      {
+        "day": 19,
+        "juz": 10,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 8,
+          "ayah": 41
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 29
+        },
+        "verseCount": 64
+      },
+      {
+        "day": 20,
+        "juz": 10,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 9,
+          "ayah": 30
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 92
+        },
+        "verseCount": 63
+      },
+      {
+        "day": 21,
+        "juz": 11,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 9,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 10,
+          "ayah": 39
+        },
+        "verseCount": 76
+      },
+      {
+        "day": 22,
+        "juz": 11,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 10,
+          "ayah": 40
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 5
+        },
+        "verseCount": 75
+      },
+      {
+        "day": 23,
+        "juz": 12,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 11,
+          "ayah": 6
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 90
+        },
+        "verseCount": 85
+      },
+      {
+        "day": 24,
+        "juz": 12,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 11,
+          "ayah": 91
+        },
+        "to": {
+          "surah": 12,
+          "ayah": 52
+        },
+        "verseCount": 85
+      },
+      {
+        "day": 25,
+        "juz": 13,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 12,
+          "ayah": 53
+        },
+        "to": {
+          "surah": 13,
+          "ayah": 18
+        },
+        "verseCount": 77
+      },
+      {
+        "day": 26,
+        "juz": 13,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 13,
+          "ayah": 19
+        },
+        "to": {
+          "surah": 14,
+          "ayah": 52
+        },
+        "verseCount": 77
+      },
+      {
+        "day": 27,
+        "juz": 14,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 15,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 16,
+          "ayah": 15
+        },
+        "verseCount": 114
+      },
+      {
+        "day": 28,
+        "juz": 14,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 16,
+          "ayah": 16
+        },
+        "to": {
+          "surah": 16,
+          "ayah": 128
+        },
+        "verseCount": 113
+      },
+      {
+        "day": 29,
+        "juz": 15,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 17,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 17,
+          "ayah": 93
+        },
+        "verseCount": 93
+      },
+      {
+        "day": 30,
+        "juz": 15,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 17,
+          "ayah": 94
+        },
+        "to": {
+          "surah": 18,
+          "ayah": 74
+        },
+        "verseCount": 92
+      },
+      {
+        "day": 31,
+        "juz": 16,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 18,
+          "ayah": 75
+        },
+        "to": {
+          "surah": 20,
+          "ayah": 1
+        },
+        "verseCount": 135
+      },
+      {
+        "day": 32,
+        "juz": 16,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 20,
+          "ayah": 2
+        },
+        "to": {
+          "surah": 20,
+          "ayah": 135
+        },
+        "verseCount": 134
+      },
+      {
+        "day": 33,
+        "juz": 17,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 21,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 21,
+          "ayah": 95
+        },
+        "verseCount": 95
+      },
+      {
+        "day": 34,
+        "juz": 17,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 21,
+          "ayah": 96
+        },
+        "to": {
+          "surah": 22,
+          "ayah": 78
+        },
+        "verseCount": 95
+      },
+      {
+        "day": 35,
+        "juz": 18,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 23,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 23,
+          "ayah": 101
+        },
+        "verseCount": 101
+      },
+      {
+        "day": 36,
+        "juz": 18,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 23,
+          "ayah": 102
+        },
+        "to": {
+          "surah": 25,
+          "ayah": 20
+        },
+        "verseCount": 101
+      },
+      {
+        "day": 37,
+        "juz": 19,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 25,
+          "ayah": 21
+        },
+        "to": {
+          "surah": 26,
+          "ayah": 113
+        },
+        "verseCount": 170
+      },
+      {
+        "day": 38,
+        "juz": 19,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 26,
+          "ayah": 114
+        },
+        "to": {
+          "surah": 27,
+          "ayah": 55
+        },
+        "verseCount": 169
+      },
+      {
+        "day": 39,
+        "juz": 20,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 27,
+          "ayah": 56
+        },
+        "to": {
+          "surah": 28,
+          "ayah": 48
+        },
+        "verseCount": 86
+      },
+      {
+        "day": 40,
+        "juz": 20,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 28,
+          "ayah": 49
+        },
+        "to": {
+          "surah": 29,
+          "ayah": 45
+        },
+        "verseCount": 85
+      },
+      {
+        "day": 41,
+        "juz": 21,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 29,
+          "ayah": 46
+        },
+        "to": {
+          "surah": 31,
+          "ayah": 5
+        },
+        "verseCount": 89
+      },
+      {
+        "day": 42,
+        "juz": 21,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 31,
+          "ayah": 6
+        },
+        "to": {
+          "surah": 33,
+          "ayah": 30
+        },
+        "verseCount": 89
+      },
+      {
+        "day": 43,
+        "juz": 22,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 33,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 34,
+          "ayah": 42
+        },
+        "verseCount": 85
+      },
+      {
+        "day": 44,
+        "juz": 22,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 34,
+          "ayah": 43
+        },
+        "to": {
+          "surah": 36,
+          "ayah": 27
+        },
+        "verseCount": 84
+      },
+      {
+        "day": 45,
+        "juz": 23,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 36,
+          "ayah": 28
+        },
+        "to": {
+          "surah": 37,
+          "ayah": 123
+        },
+        "verseCount": 179
+      },
+      {
+        "day": 46,
+        "juz": 23,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 37,
+          "ayah": 124
+        },
+        "to": {
+          "surah": 39,
+          "ayah": 31
+        },
+        "verseCount": 178
+      },
+      {
+        "day": 47,
+        "juz": 24,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 39,
+          "ayah": 32
+        },
+        "to": {
+          "surah": 40,
+          "ayah": 44
+        },
+        "verseCount": 88
+      },
+      {
+        "day": 48,
+        "juz": 24,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 40,
+          "ayah": 45
+        },
+        "to": {
+          "surah": 41,
+          "ayah": 46
+        },
+        "verseCount": 87
+      },
+      {
+        "day": 49,
+        "juz": 25,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 41,
+          "ayah": 47
+        },
+        "to": {
+          "surah": 43,
+          "ayah": 62
+        },
+        "verseCount": 123
+      },
+      {
+        "day": 50,
+        "juz": 25,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 43,
+          "ayah": 63
+        },
+        "to": {
+          "surah": 45,
+          "ayah": 37
+        },
+        "verseCount": 123
+      },
+      {
+        "day": 51,
+        "juz": 26,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 46,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 48,
+          "ayah": 25
+        },
+        "verseCount": 98
+      },
+      {
+        "day": 52,
+        "juz": 26,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 48,
+          "ayah": 26
+        },
+        "to": {
+          "surah": 51,
+          "ayah": 30
+        },
+        "verseCount": 97
+      },
+      {
+        "day": 53,
+        "juz": 27,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 51,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 55,
+          "ayah": 4
+        },
+        "verseCount": 200
+      },
+      {
+        "day": 54,
+        "juz": 27,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 55,
+          "ayah": 5
+        },
+        "to": {
+          "surah": 57,
+          "ayah": 29
+        },
+        "verseCount": 199
+      },
+      {
+        "day": 55,
+        "juz": 28,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 58,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 61,
+          "ayah": 10
+        },
+        "verseCount": 69
+      },
+      {
+        "day": 56,
+        "juz": 28,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 61,
+          "ayah": 11
+        },
+        "to": {
+          "surah": 66,
+          "ayah": 12
+        },
+        "verseCount": 68
+      },
+      {
+        "day": 57,
+        "juz": 29,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 67,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 72,
+          "ayah": 10
+        },
+        "verseCount": 216
+      },
+      {
+        "day": 58,
+        "juz": 29,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 72,
+          "ayah": 11
+        },
+        "to": {
+          "surah": 77,
+          "ayah": 50
+        },
+        "verseCount": 215
+      },
+      {
+        "day": 59,
+        "juz": 30,
+        "part": 1,
+        "parts": 2,
+        "from": {
+          "surah": 78,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 87,
+          "ayah": 6
+        },
+        "verseCount": 282
+      },
+      {
+        "day": 60,
+        "juz": 30,
+        "part": 2,
+        "parts": 2,
+        "from": {
+          "surah": 87,
+          "ayah": 7
+        },
+        "to": {
+          "surah": 114,
+          "ayah": 6
+        },
+        "verseCount": 282
+      }
+    ],
+    "90": [
+      {
+        "day": 1,
+        "juz": 1,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 1,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 43
+        },
+        "verseCount": 50
+      },
+      {
+        "day": 2,
+        "juz": 1,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 44
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 92
+        },
+        "verseCount": 49
+      },
+      {
+        "day": 3,
+        "juz": 1,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 141
+        },
+        "verseCount": 49
+      },
+      {
+        "day": 4,
+        "juz": 2,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 142
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 178
+        },
+        "verseCount": 37
+      },
+      {
+        "day": 5,
+        "juz": 2,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 179
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 215
+        },
+        "verseCount": 37
+      },
+      {
+        "day": 6,
+        "juz": 2,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 216
+        },
+        "to": {
+          "surah": 2,
+          "ayah": 252
+        },
+        "verseCount": 37
+      },
+      {
+        "day": 7,
+        "juz": 3,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 2,
+          "ayah": 253
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 8
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 8,
+        "juz": 3,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 3,
+          "ayah": 9
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 50
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 9,
+        "juz": 3,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 3,
+          "ayah": 51
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 92
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 10,
+        "juz": 4,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 3,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 136
+        },
+        "verseCount": 44
+      },
+      {
+        "day": 11,
+        "juz": 4,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 3,
+          "ayah": 137
+        },
+        "to": {
+          "surah": 3,
+          "ayah": 180
+        },
+        "verseCount": 44
+      },
+      {
+        "day": 12,
+        "juz": 4,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 3,
+          "ayah": 181
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 23
+        },
+        "verseCount": 43
+      },
+      {
+        "day": 13,
+        "juz": 5,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 4,
+          "ayah": 24
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 65
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 14,
+        "juz": 5,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 4,
+          "ayah": 66
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 106
+        },
+        "verseCount": 41
+      },
+      {
+        "day": 15,
+        "juz": 5,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 4,
+          "ayah": 107
+        },
+        "to": {
+          "surah": 4,
+          "ayah": 147
+        },
+        "verseCount": 41
+      },
+      {
+        "day": 16,
+        "juz": 6,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 4,
+          "ayah": 148
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 8
+        },
+        "verseCount": 37
+      },
+      {
+        "day": 17,
+        "juz": 6,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 5,
+          "ayah": 9
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 45
+        },
+        "verseCount": 37
+      },
+      {
+        "day": 18,
+        "juz": 6,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 5,
+          "ayah": 46
+        },
+        "to": {
+          "surah": 5,
+          "ayah": 81
+        },
+        "verseCount": 36
+      },
+      {
+        "day": 19,
+        "juz": 7,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 5,
+          "ayah": 82
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 11
+        },
+        "verseCount": 50
+      },
+      {
+        "day": 20,
+        "juz": 7,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 6,
+          "ayah": 12
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 61
+        },
+        "verseCount": 50
+      },
+      {
+        "day": 21,
+        "juz": 7,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 6,
+          "ayah": 62
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 110
+        },
+        "verseCount": 49
+      },
+      {
+        "day": 22,
+        "juz": 8,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 6,
+          "ayah": 111
+        },
+        "to": {
+          "surah": 6,
+          "ayah": 158
+        },
+        "verseCount": 48
+      },
+      {
+        "day": 23,
+        "juz": 8,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 6,
+          "ayah": 159
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 40
+        },
+        "verseCount": 47
+      },
+      {
+        "day": 24,
+        "juz": 8,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 7,
+          "ayah": 41
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 87
+        },
+        "verseCount": 47
+      },
+      {
+        "day": 25,
+        "juz": 9,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 7,
+          "ayah": 88
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 140
+        },
+        "verseCount": 53
+      },
+      {
+        "day": 26,
+        "juz": 9,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 7,
+          "ayah": 141
+        },
+        "to": {
+          "surah": 7,
+          "ayah": 193
+        },
+        "verseCount": 53
+      },
+      {
+        "day": 27,
+        "juz": 9,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 7,
+          "ayah": 194
+        },
+        "to": {
+          "surah": 8,
+          "ayah": 40
+        },
+        "verseCount": 53
+      },
+      {
+        "day": 28,
+        "juz": 10,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 8,
+          "ayah": 41
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 8
+        },
+        "verseCount": 43
+      },
+      {
+        "day": 29,
+        "juz": 10,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 9,
+          "ayah": 9
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 50
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 30,
+        "juz": 10,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 9,
+          "ayah": 51
+        },
+        "to": {
+          "surah": 9,
+          "ayah": 92
+        },
+        "verseCount": 42
+      },
+      {
+        "day": 31,
+        "juz": 11,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 9,
+          "ayah": 93
+        },
+        "to": {
+          "surah": 10,
+          "ayah": 14
+        },
+        "verseCount": 51
+      },
+      {
+        "day": 32,
+        "juz": 11,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 10,
+          "ayah": 15
+        },
+        "to": {
+          "surah": 10,
+          "ayah": 64
+        },
+        "verseCount": 50
+      },
+      {
+        "day": 33,
+        "juz": 11,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 10,
+          "ayah": 65
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 5
+        },
+        "verseCount": 50
+      },
+      {
+        "day": 34,
+        "juz": 12,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 11,
+          "ayah": 6
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 62
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 35,
+        "juz": 12,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 11,
+          "ayah": 63
+        },
+        "to": {
+          "surah": 11,
+          "ayah": 119
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 36,
+        "juz": 12,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 11,
+          "ayah": 120
+        },
+        "to": {
+          "surah": 12,
+          "ayah": 52
+        },
+        "verseCount": 56
+      },
+      {
+        "day": 37,
+        "juz": 13,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 12,
+          "ayah": 53
+        },
+        "to": {
+          "surah": 12,
+          "ayah": 104
+        },
+        "verseCount": 52
+      },
+      {
+        "day": 38,
+        "juz": 13,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 12,
+          "ayah": 105
+        },
+        "to": {
+          "surah": 14,
+          "ayah": 1
+        },
+        "verseCount": 51
+      },
+      {
+        "day": 39,
+        "juz": 13,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 14,
+          "ayah": 2
+        },
+        "to": {
+          "surah": 14,
+          "ayah": 52
+        },
+        "verseCount": 51
+      },
+      {
+        "day": 40,
+        "juz": 14,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 15,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 15,
+          "ayah": 76
+        },
+        "verseCount": 76
+      },
+      {
+        "day": 41,
+        "juz": 14,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 15,
+          "ayah": 77
+        },
+        "to": {
+          "surah": 16,
+          "ayah": 53
+        },
+        "verseCount": 76
+      },
+      {
+        "day": 42,
+        "juz": 14,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 16,
+          "ayah": 54
+        },
+        "to": {
+          "surah": 16,
+          "ayah": 128
+        },
+        "verseCount": 75
+      },
+      {
+        "day": 43,
+        "juz": 15,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 17,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 17,
+          "ayah": 62
+        },
+        "verseCount": 62
+      },
+      {
+        "day": 44,
+        "juz": 15,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 17,
+          "ayah": 63
+        },
+        "to": {
+          "surah": 18,
+          "ayah": 13
+        },
+        "verseCount": 62
+      },
+      {
+        "day": 45,
+        "juz": 15,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 18,
+          "ayah": 14
+        },
+        "to": {
+          "surah": 18,
+          "ayah": 74
+        },
+        "verseCount": 61
+      },
+      {
+        "day": 46,
+        "juz": 16,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 18,
+          "ayah": 75
+        },
+        "to": {
+          "surah": 19,
+          "ayah": 54
+        },
+        "verseCount": 90
+      },
+      {
+        "day": 47,
+        "juz": 16,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 19,
+          "ayah": 55
+        },
+        "to": {
+          "surah": 20,
+          "ayah": 46
+        },
+        "verseCount": 90
+      },
+      {
+        "day": 48,
+        "juz": 16,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 20,
+          "ayah": 47
+        },
+        "to": {
+          "surah": 20,
+          "ayah": 135
+        },
+        "verseCount": 89
+      },
+      {
+        "day": 49,
+        "juz": 17,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 21,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 21,
+          "ayah": 64
+        },
+        "verseCount": 64
+      },
+      {
+        "day": 50,
+        "juz": 17,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 21,
+          "ayah": 65
+        },
+        "to": {
+          "surah": 22,
+          "ayah": 15
+        },
+        "verseCount": 63
+      },
+      {
+        "day": 51,
+        "juz": 17,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 22,
+          "ayah": 16
+        },
+        "to": {
+          "surah": 22,
+          "ayah": 78
+        },
+        "verseCount": 63
+      },
+      {
+        "day": 52,
+        "juz": 18,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 23,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 23,
+          "ayah": 68
+        },
+        "verseCount": 68
+      },
+      {
+        "day": 53,
+        "juz": 18,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 23,
+          "ayah": 69
+        },
+        "to": {
+          "surah": 24,
+          "ayah": 17
+        },
+        "verseCount": 67
+      },
+      {
+        "day": 54,
+        "juz": 18,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 24,
+          "ayah": 18
+        },
+        "to": {
+          "surah": 25,
+          "ayah": 20
+        },
+        "verseCount": 67
+      },
+      {
+        "day": 55,
+        "juz": 19,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 25,
+          "ayah": 21
+        },
+        "to": {
+          "surah": 26,
+          "ayah": 56
+        },
+        "verseCount": 113
+      },
+      {
+        "day": 56,
+        "juz": 19,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 26,
+          "ayah": 57
+        },
+        "to": {
+          "surah": 26,
+          "ayah": 169
+        },
+        "verseCount": 113
+      },
+      {
+        "day": 57,
+        "juz": 19,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 26,
+          "ayah": 170
+        },
+        "to": {
+          "surah": 27,
+          "ayah": 55
+        },
+        "verseCount": 113
+      },
+      {
+        "day": 58,
+        "juz": 20,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 27,
+          "ayah": 56
+        },
+        "to": {
+          "surah": 28,
+          "ayah": 19
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 59,
+        "juz": 20,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 28,
+          "ayah": 20
+        },
+        "to": {
+          "surah": 28,
+          "ayah": 76
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 60,
+        "juz": 20,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 28,
+          "ayah": 77
+        },
+        "to": {
+          "surah": 29,
+          "ayah": 45
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 61,
+        "juz": 21,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 29,
+          "ayah": 46
+        },
+        "to": {
+          "surah": 30,
+          "ayah": 36
+        },
+        "verseCount": 60
+      },
+      {
+        "day": 62,
+        "juz": 21,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 30,
+          "ayah": 37
+        },
+        "to": {
+          "surah": 32,
+          "ayah": 1
+        },
+        "verseCount": 59
+      },
+      {
+        "day": 63,
+        "juz": 21,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 32,
+          "ayah": 2
+        },
+        "to": {
+          "surah": 33,
+          "ayah": 30
+        },
+        "verseCount": 59
+      },
+      {
+        "day": 64,
+        "juz": 22,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 33,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 34,
+          "ayah": 14
+        },
+        "verseCount": 57
+      },
+      {
+        "day": 65,
+        "juz": 22,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 34,
+          "ayah": 15
+        },
+        "to": {
+          "surah": 35,
+          "ayah": 16
+        },
+        "verseCount": 56
+      },
+      {
+        "day": 66,
+        "juz": 22,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 35,
+          "ayah": 17
+        },
+        "to": {
+          "surah": 36,
+          "ayah": 27
+        },
+        "verseCount": 56
+      },
+      {
+        "day": 67,
+        "juz": 23,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 36,
+          "ayah": 28
+        },
+        "to": {
+          "surah": 37,
+          "ayah": 63
+        },
+        "verseCount": 119
+      },
+      {
+        "day": 68,
+        "juz": 23,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 37,
+          "ayah": 64
+        },
+        "to": {
+          "surah": 37,
+          "ayah": 182
+        },
+        "verseCount": 119
+      },
+      {
+        "day": 69,
+        "juz": 23,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 38,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 39,
+          "ayah": 31
+        },
+        "verseCount": 119
+      },
+      {
+        "day": 70,
+        "juz": 24,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 39,
+          "ayah": 32
+        },
+        "to": {
+          "surah": 40,
+          "ayah": 15
+        },
+        "verseCount": 59
+      },
+      {
+        "day": 71,
+        "juz": 24,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 40,
+          "ayah": 16
+        },
+        "to": {
+          "surah": 40,
+          "ayah": 73
+        },
+        "verseCount": 58
+      },
+      {
+        "day": 72,
+        "juz": 24,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 40,
+          "ayah": 74
+        },
+        "to": {
+          "surah": 41,
+          "ayah": 46
+        },
+        "verseCount": 58
+      },
+      {
+        "day": 73,
+        "juz": 25,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 41,
+          "ayah": 47
+        },
+        "to": {
+          "surah": 43,
+          "ayah": 21
+        },
+        "verseCount": 82
+      },
+      {
+        "day": 74,
+        "juz": 25,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 43,
+          "ayah": 22
+        },
+        "to": {
+          "surah": 44,
+          "ayah": 14
+        },
+        "verseCount": 82
+      },
+      {
+        "day": 75,
+        "juz": 25,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 44,
+          "ayah": 15
+        },
+        "to": {
+          "surah": 45,
+          "ayah": 37
+        },
+        "verseCount": 82
+      },
+      {
+        "day": 76,
+        "juz": 26,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 46,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 47,
+          "ayah": 30
+        },
+        "verseCount": 65
+      },
+      {
+        "day": 77,
+        "juz": 26,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 47,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 50,
+          "ayah": 10
+        },
+        "verseCount": 65
+      },
+      {
+        "day": 78,
+        "juz": 26,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 50,
+          "ayah": 11
+        },
+        "to": {
+          "surah": 51,
+          "ayah": 30
+        },
+        "verseCount": 65
+      },
+      {
+        "day": 79,
+        "juz": 27,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 51,
+          "ayah": 31
+        },
+        "to": {
+          "surah": 53,
+          "ayah": 54
+        },
+        "verseCount": 133
+      },
+      {
+        "day": 80,
+        "juz": 27,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 53,
+          "ayah": 55
+        },
+        "to": {
+          "surah": 55,
+          "ayah": 70
+        },
+        "verseCount": 133
+      },
+      {
+        "day": 81,
+        "juz": 27,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 55,
+          "ayah": 71
+        },
+        "to": {
+          "surah": 57,
+          "ayah": 29
+        },
+        "verseCount": 133
+      },
+      {
+        "day": 82,
+        "juz": 28,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 58,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 59,
+          "ayah": 24
+        },
+        "verseCount": 46
+      },
+      {
+        "day": 83,
+        "juz": 28,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 60,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 63,
+          "ayah": 8
+        },
+        "verseCount": 46
+      },
+      {
+        "day": 84,
+        "juz": 28,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 63,
+          "ayah": 9
+        },
+        "to": {
+          "surah": 66,
+          "ayah": 12
+        },
+        "verseCount": 45
+      },
+      {
+        "day": 85,
+        "juz": 29,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 67,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 70,
+          "ayah": 10
+        },
+        "verseCount": 144
+      },
+      {
+        "day": 86,
+        "juz": 29,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 70,
+          "ayah": 11
+        },
+        "to": {
+          "surah": 74,
+          "ayah": 34
+        },
+        "verseCount": 144
+      },
+      {
+        "day": 87,
+        "juz": 29,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 74,
+          "ayah": 35
+        },
+        "to": {
+          "surah": 77,
+          "ayah": 50
+        },
+        "verseCount": 143
+      },
+      {
+        "day": 88,
+        "juz": 30,
+        "part": 1,
+        "parts": 3,
+        "from": {
+          "surah": 78,
+          "ayah": 1
+        },
+        "to": {
+          "surah": 83,
+          "ayah": 12
+        },
+        "verseCount": 188
+      },
+      {
+        "day": 89,
+        "juz": 30,
+        "part": 2,
+        "parts": 3,
+        "from": {
+          "surah": 83,
+          "ayah": 13
+        },
+        "to": {
+          "surah": 91,
+          "ayah": 5
+        },
+        "verseCount": 188
+      },
+      {
+        "day": 90,
+        "juz": 30,
+        "part": 3,
+        "parts": 3,
+        "from": {
+          "surah": 91,
+          "ayah": 6
+        },
+        "to": {
+          "surah": 114,
+          "ayah": 6
+        },
+        "verseCount": 188
+      }
+    ]
+  }
+}
