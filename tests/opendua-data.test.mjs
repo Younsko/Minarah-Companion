@@ -21,11 +21,17 @@ test('bundled OpenDua edition preserves attribution and separates source Arabic 
     assert.ok(dua.tags.length > 0);
   }
   const frenchDuas = data.duas.filter(dua => typeof dua.translations?.fr?.text === 'string');
-  assert.equal(frenchDuas.length, 186);
+  assert.equal(frenchDuas.length, 262);
   for (const dua of frenchDuas) {
     assert.ok(dua.translations.fr.text.trim());
-    assert.match(dua.translations.fr.source, /IslamHouse/);
+    assert.ok(dua.translations.fr.source);
   }
+  assert.equal(frenchDuas.filter(dua => dua.translations.fr.source.startsWith('IslamHouse')).length, 190);
+  assert.equal(frenchDuas.filter(dua => dua.translations.fr.source.startsWith('QuranEnc')).length, 8);
+  assert.equal(frenchDuas.filter(dua => dua.translations.fr.source.startsWith('Minarah')).length, 64);
+  assert.match(data.duas.find(dua => dua.id === 'dua-000076').translations.fr.text, /Dis :/);
+  assert.match(data.duas.find(dua => dua.id === 'dua-000113').translations.fr.text, /Le Messager a cru/);
+  assert.match(data.duas.find(dua => dua.id === 'dua-000080').translations.fr.notice, /pas une édition savante/);
   assert.match(data.duas.find(dua => dua.id === 'dua-000019').translations.fr.text, /lumière dans mon coeur/);
   assert.match(data.duas.find(dua => dua.id === 'dua-000019').translations.fr.source, /invocation 19, p\. 21/);
 });

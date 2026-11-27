@@ -1,4 +1,4 @@
-const VERSION = 'minarah-v4';
+const VERSION = 'minarah-v5';
 const CORE = ['/', '/manifest.webmanifest', '/data/quran/surahs.json'];
 const QURAN = Array.from({ length: 114 }, (_, index) => `/data/quran/surah-${index + 1}.json`);
 self.addEventListener('install', event => {
@@ -40,4 +40,3 @@ self.addEventListener('fetch', event => {
     }).catch(() => caches.match('/')));
   }
 });
-

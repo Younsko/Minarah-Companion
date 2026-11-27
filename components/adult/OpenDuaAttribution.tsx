@@ -7,6 +7,9 @@ export default function OpenDuaAttribution() {
             <p style={{ margin: '0.35rem 0 0' }}>
                 Traductions françaises reproduites sans modification depuis <a href="https://islamhouse.com/fr/books/2846930/" target="_blank" rel="noreferrer">La Citadelle du Musulman</a> d&apos;Al-Qahtani. Sept invocations utilisent également la <a href="https://d1.islamhouse.com/data/fr/ih_books/single/fr_Fortress_of_the_Muslim.pdf" target="_blank" rel="noreferrer">3e édition française (2005)</a>; voir les <a href="https://d1.islamhouse.com/html/faq.htm" target="_blank" rel="noreferrer">conditions de redistribution</a> d&apos;IslamHouse.
             </p>
+            <p style={{ margin: '0.35rem 0 0' }}>
+                Les autres traductions françaises sont des adaptations du sens anglais OpenDua par Minarah. Les passages coraniques utilisent l&apos;édition française QuranEnc Noor International Center v1.0.0; ces adaptations ne constituent pas une édition savante.
+            </p>
         </div>
     );
 }

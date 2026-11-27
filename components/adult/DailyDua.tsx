@@ -6,6 +6,7 @@ import { RefreshCw, Hand } from 'lucide-react';
 import { useI18n } from '@/lib/i18n-context';
 import { CONTEXT_DB, ContextItem } from '@/lib/context-engine';
 import OpenDuaAttribution from './OpenDuaAttribution';
+import { getFrenchDuaTranslationLabel } from '@/lib/dua-translation-label';
 
 export default function DailyDua() {
     const { language } = useI18n();
@@ -41,7 +42,7 @@ export default function DailyDua() {
             {language !== 'en' && (
                 <small>
                     {language === 'fr'
-                        ? showFrench ? `Traduction française · ${dua.translations?.fr?.source || 'IslamHouse'}` : 'Traduction anglaise source · OpenDua'
+                        ? showFrench ? getFrenchDuaTranslationLabel(dua.translations?.fr?.source) : 'Traduction anglaise source · OpenDua'
                         : 'الترجمة الإنجليزية · OpenDua'}
                 </small>
             )}
@@ -51,4 +52,3 @@ export default function DailyDua() {
         </div>
     );
 }
-

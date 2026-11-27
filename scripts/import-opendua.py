@@ -6,8 +6,10 @@ The generated file includes OpenDua's licensed English translation,
 transliteration, editorial title, tags and source references. It also includes
 the source Arabic recitations attributed to Hisn al-Muslim / Quran and Sunnah;
 OpenDua expressly does not claim rights over those underlying religious texts.
-French translations are read from the separately attributed mapping file when
-present. Those strings are copied verbatim from the IslamHouse French edition.
+French translations are read from separately attributed source mappings. The
+IslamHouse strings are copied verbatim; the QuranEnc passages are copied with
+their footnotes; Minarah translations are clearly labelled adaptations of the
+OpenDua English text.
 """
 
 from __future__ import annotations
@@ -34,6 +36,34 @@ def main() -> None:
     french_source_path = ROOT / "public" / "data" / "islamhouse-fr-translations.json"
     french_source = json.loads(french_source_path.read_text(encoding="utf-8"))
     french_translations = french_source["translations"]
+    minarah_source = json.loads((ROOT / "public" / "data" / "minarah-fr-translations.json").read_text(encoding="utf-8"))
+    minarah_translations = minarah_source["translations"]
+    quran_passages = {
+        "dua-000004": [(3, 190, 200)],
+        "dua-000076": [(112, 1, 4), (113, 1, 5), (114, 1, 6)],
+        "dua-000077": [(2, 255, 255)],
+        "dua-000081": [(2, 255, 255)],
+        "dua-000082": [(112, 1, 4), (113, 1, 5), (114, 1, 6)],
+        "dua-000111": [(112, 1, 4), (113, 1, 5), (114, 1, 6)],
+        "dua-000112": [(2, 255, 255)],
+        "dua-000113": [(2, 285, 286)],
+    }
+
+    def quranenc_translation(identifier: str) -> str:
+        passages = quran_passages[identifier]
+        parts: list[str] = []
+        for surah_number, first_ayah, last_ayah in passages:
+            surah_path = ROOT / "public" / "data" / "quran" / f"surah-{surah_number}.json"
+            editions = json.loads(surah_path.read_text(encoding="utf-8"))
+            edition = next(item for item in editions if item["edition"]["identifier"] == "french_montada")
+            verses = edition["ayahs"][first_ayah - 1:last_ayah]
+            for verse in verses:
+                text = verse["text"]
+                text = __import__("re").sub(r"^\s*\d+\.\s*", "", text)
+                if verse.get("footnotes"):
+                    text = f"{text} {verse['footnotes']}"
+                parts.append(text)
+        return " ".join(parts)
     contexts: dict[str, dict[str, Any]] = {}
 
     for entry in source["entries"]:
@@ -82,9 +112,39 @@ def main() -> None:
             "sourceReference": context.get("sourceReference"),
             "references": context.get("references", []),
         }
-        if identifier in french_translations:
-            record["translations"] = {"fr": french_translations[identifier]}
+        french_translation = french_translations.get(identifier)
+        if not french_translation and identifier in quran_passages:
+            french_translation = {
+                "text": quranenc_translation(identifier),
+                "source": "QuranEnc · Noor International Center, édition française v1.0.0 · versets reproduits avec leurs notes",
+            }
+            if identifier == "dua-000081":
+                french_translation["text"] = "Je cherche refuge auprès d’Allah contre Satan le maudit. " + french_translation["text"]
+                french_translation["source"] += "; formule initiale traduite par Minarah depuis OpenDua EN v0.0.4"
+        if not french_translation and identifier in minarah_translations:
+            french_translation = {
+                "text": minarah_translations[identifier],
+                "source": minarah_source["source"],
+                "notice": minarah_source["notice"],
+            }
+        if french_translation:
+            record["translations"] = {"fr": french_translation}
         records.append(record)
+
+    # Some entries repeat an invocation already translated verbatim by IslamHouse.
+    # Reuse only exact Arabic matches, preserving the source label of the text.
+    french_by_arabic: dict[str, dict[str, str]] = {}
+    for record in records:
+        normalized_arabic = " ".join(record["arabic"].split())
+        french = record.get("translations", {}).get("fr")
+        if french:
+            french_by_arabic.setdefault(normalized_arabic, french)
+    for record in records:
+        if record.get("translations", {}).get("fr"):
+            continue
+        normalized_arabic = " ".join(record["arabic"].split())
+        if normalized_arabic in french_by_arabic:
+            record["translations"] = {"fr": french_by_arabic[normalized_arabic]}
 
     if len(records) != 262:
         raise ValueError(f"Expected 262 licensed OpenDua canonical duas, got {len(records)}")
@@ -110,7 +170,11 @@ def main() -> None:
     }
     target = ROOT / "public" / "data" / "opendua-v0.0.4.json"
     target.write_text(json.dumps(output, ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"Wrote {len(records)} Arabic, transliteration and English records.")
+    french_count = sum(bool(record.get("translations", {}).get("fr", {}).get("text")) for record in records)
+    if french_count != 262:
+        missing_ids = [record["id"] for record in records if not record.get("translations", {}).get("fr", {}).get("text")]
+        raise ValueError(f"Expected French translations for all 262 records; missing {missing_ids}")
+    print(f"Wrote {len(records)} Arabic, transliteration and English records; French translations cover all {french_count}.")
 
 
 if __name__ == "__main__":

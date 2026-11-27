@@ -6,6 +6,7 @@ import { useI18n } from '@/lib/i18n-context';
 import { Star } from 'lucide-react';
 import { addFavorite, removeFavorite, isFavorited, getFavoriteByIdentifier } from '@/lib/favorites';
 import { ContextItem } from '@/lib/context-engine';
+import { getFrenchDuaTranslationLabel } from '@/lib/dua-translation-label';
 
 export default function ContextCard({ item }: { item: ContextItem }) {
     const { language } = useI18n();
@@ -55,7 +56,7 @@ export default function ContextCard({ item }: { item: ContextItem }) {
             <h3 className={styles.title}>{item.title}</h3>
             {item.arabic && <p className={styles.arabic} lang="ar" dir="rtl">{item.arabic}</p>}
             {item.transliteration && <p className={styles.transliteration} lang="ar-Latn">{item.transliteration}</p>}
-            {hasFrenchTranslation && <small className={styles.languageNote}>Traduction française · IslamHouse</small>}
+            {hasFrenchTranslation && <small className={styles.languageNote}>{getFrenchDuaTranslationLabel(item.translations?.fr?.source)}</small>}
             {language === 'fr' && !hasFrenchTranslation && <small className={styles.languageNote}>Traduction anglaise source · OpenDua</small>}
             {language === 'ar' && displayedTranslationLanguage === 'en' && <small className={styles.languageNote} dir="rtl">الترجمة الإنجليزية المصدر · OpenDua</small>}
             <p className={styles.translation} lang={displayedTranslationLanguage}>{displayedTranslation}</p>
