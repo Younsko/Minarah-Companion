@@ -18,6 +18,10 @@ export default function DailyDua() {
     }, []);
 
     const chooseAnother = () => setDua(CONTEXT_DB[Math.floor(Math.random() * CONTEXT_DB.length)]);
+    const frenchText = dua.translations?.fr?.text;
+    const showFrench = language === 'fr' && Boolean(frenchText);
+    const displayedTranslation = showFrench ? frenchText : dua.text;
+    const displayedLanguage = showFrench ? 'fr' : 'en';
 
     return (
         <div className={styles.container}>
@@ -32,11 +36,19 @@ export default function DailyDua() {
             </div>
 
             <h3>{dua.title}</h3>
-            <p className={styles.transliteration} lang="en">{dua.transliteration}</p>
-            {language !== 'en' && <small>{language === 'fr' ? 'Traduction anglaise' : 'الترجمة الإنجليزية'}</small>}
-            <p className={styles.translation} lang="en">{dua.text}</p>
+            {dua.arabic && <p className={styles.arabic} lang="ar" dir="rtl">{dua.arabic}</p>}
+            {dua.transliteration && <p className={styles.transliteration} lang="ar-Latn">{dua.transliteration}</p>}
+            {language !== 'en' && (
+                <small>
+                    {language === 'fr'
+                        ? showFrench ? `Traduction française · ${dua.translations?.fr?.source || 'IslamHouse'}` : 'Traduction anglaise source · OpenDua'
+                        : 'الترجمة الإنجليزية · OpenDua'}
+                </small>
+            )}
+            <p className={styles.translation} lang={displayedLanguage}>{displayedTranslation}</p>
             <span className={styles.source}>{dua.source}</span>
             <OpenDuaAttribution />
         </div>
     );
 }
+
