@@ -5,7 +5,7 @@ export default function OpenDuaAttribution() {
                 OpenDua dataset v0.0.4 (<a href="https://opendua.org" target="_blank" rel="noreferrer">opendua.org</a>), by Ihsan Labs at the Human Development Fund. Based on Hisn al-Muslim by Sa&apos;id ibn Ali ibn Wahf al-Qahtani. OpenDua editorial text, dataset structure and the recitation by Muhammad Jumah are licensed <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noreferrer">CC BY 4.0</a>. OpenDua makes no ownership claim over the underlying religious texts.
             </p>
             <p style={{ margin: '0.35rem 0 0' }}>
-                Traductions françaises reproduites sans modification depuis <a href="https://islamhouse.com/fr/books/2846930/" target="_blank" rel="noreferrer">La Citadelle du Musulman</a> d&apos;Al-Qahtani, édition française d&apos;IslamHouse; voir leurs <a href="https://d1.islamhouse.com/html/faq.htm" target="_blank" rel="noreferrer">conditions de redistribution</a>.
+                Traductions françaises reproduites sans modification depuis <a href="https://islamhouse.com/fr/books/2846930/" target="_blank" rel="noreferrer">La Citadelle du Musulman</a> d&apos;Al-Qahtani. Sept invocations utilisent également la <a href="https://d1.islamhouse.com/data/fr/ih_books/single/fr_Fortress_of_the_Muslim.pdf" target="_blank" rel="noreferrer">3e édition française (2005)</a>; voir les <a href="https://d1.islamhouse.com/html/faq.htm" target="_blank" rel="noreferrer">conditions de redistribution</a> d&apos;IslamHouse.
             </p>
         </div>
     );

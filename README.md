@@ -11,7 +11,9 @@ Minarah is a local-first daily companion for Quran reading, duas, and configurab
 - Installable PWA with an offline cache for the local Quran files.
 - No account, application database, Convex, analytics, or server-side user profile.
 
-Tafsir, hadith cards, and the previous dua corpus are excluded. The dua library now bundles OpenDua v0.0.4: its English translations, transliterations, titles, category tags, and references are included under CC BY 4.0. Arabic supplication text is excluded because its underlying-text rights are not granted by OpenDua. In French and Arabic interface modes, the English translation is clearly labelled. Quran translations use the versioned QuranEnc Noor International Center editions (English 1.1.2 and French 1.0.0), kept verbatim with their footnotes. See [CONTENT_LICENSES.md](CONTENT_LICENSES.md) for the sources and terms.
+Tafsir and the unverified hadith-of-the-day mock are excluded. The dua library bundles 262 canonical OpenDua v0.0.4 records, including their Arabic text, English translations, transliterations, titles, category tags, and references. OpenDua's CC BY 4.0 licence covers its English translation, transliteration, editorial metadata, and dataset structure; it makes no ownership claim over the underlying religious text. French translations are reproduced from attributed IslamHouse editions for 186 records. The remaining 76 cards keep the clearly labelled OpenDua English source text and link to the French edition while a verified French text is unavailable. See [CONTENT_LICENSES.md](CONTENT_LICENSES.md) for sources and terms.
+
+Quran translations use the versioned QuranEnc Noor International Center editions (English 1.1.2 and French 1.0.0), kept verbatim with their footnotes.
 
 ## Development
 

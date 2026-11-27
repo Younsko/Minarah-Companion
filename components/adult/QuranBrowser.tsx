@@ -662,6 +662,9 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
     }
 
     // Render Quran View
+    const previousSurah = surahs.find(surah => surah.number === selectedSurah.number - 1);
+    const nextSurah = surahs.find(surah => surah.number === selectedSurah.number + 1);
+
     return (
         <div className={styles.container} ref={containerRef}>
 
@@ -736,21 +739,18 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
 
                     <div className={styles.headerCenter}>
                         {/* Previous Surah Button with Name */}
-                        {selectedSurah.number > 1 ? (() => {
-                            const prevSurah = surahs.find(s => s.number === selectedSurah.number - 1);
-                            return prevSurah ? (
-                                <button
-                                    className={styles.navButtonWithName}
-                                    onClick={() => handleSurahClick(prevSurah)}
-                                >
-                                    <ChevronLeft size={20} />
-                                    <div className={styles.navButtonText}>
-                                        <span className={styles.navButtonLabel}>Previous</span>
-                                        <span className={styles.navButtonSurah}>{prevSurah.englishName}</span>
-                                    </div>
-                                </button>
-                            ) : null;
-                        })() : (
+                        {previousSurah ? (
+                            <button
+                                className={styles.navButtonWithName}
+                                onClick={() => handleSurahClick(previousSurah)}
+                            >
+                                <ChevronLeft size={20} />
+                                <div className={styles.navButtonText}>
+                                    <span className={styles.navButtonLabel}>Previous</span>
+                                    <span className={styles.navButtonSurah}>{previousSurah.englishName}</span>
+                                </div>
+                            </button>
+                        ) : (
                             <div className={styles.navButtonPlaceholder} />
                         )}
 
@@ -760,21 +760,18 @@ export default function QuranBrowser({ initialTarget }: QuranBrowserProps) {
                         </div>
 
                         {/* Next Surah Button with Name */}
-                        {selectedSurah.number < 114 ? (() => {
-                            const nextSurah = surahs.find(s => s.number === selectedSurah.number + 1);
-                            return nextSurah ? (
-                                <button
-                                    className={styles.navButtonWithName}
-                                    onClick={() => handleSurahClick(nextSurah)}
-                                >
-                                    <div className={styles.navButtonText}>
-                                        <span className={styles.navButtonLabel}>Next</span>
-                                        <span className={styles.navButtonSurah}>{nextSurah.englishName}</span>
-                                    </div>
-                                    <ChevronLeft size={20} style={{ transform: 'rotate(180deg)' }} />
-                                </button>
-                            ) : null;
-                        })() : (
+                        {nextSurah ? (
+                            <button
+                                className={styles.navButtonWithName}
+                                onClick={() => handleSurahClick(nextSurah)}
+                            >
+                                <div className={styles.navButtonText}>
+                                    <span className={styles.navButtonLabel}>Next</span>
+                                    <span className={styles.navButtonSurah}>{nextSurah.englishName}</span>
+                                </div>
+                                <ChevronLeft size={20} style={{ transform: 'rotate(180deg)' }} />
+                            </button>
+                        ) : (
                             <div className={styles.navButtonPlaceholder} />
                         )}
                     </div>

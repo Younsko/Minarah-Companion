@@ -21,9 +21,11 @@ test('bundled OpenDua edition preserves attribution and separates source Arabic 
     assert.ok(dua.tags.length > 0);
   }
   const frenchDuas = data.duas.filter(dua => typeof dua.translations?.fr?.text === 'string');
-  assert.equal(frenchDuas.length, 179);
+  assert.equal(frenchDuas.length, 186);
   for (const dua of frenchDuas) {
     assert.ok(dua.translations.fr.text.trim());
     assert.match(dua.translations.fr.source, /IslamHouse/);
   }
+  assert.match(data.duas.find(dua => dua.id === 'dua-000019').translations.fr.text, /lumière dans mon coeur/);
+  assert.match(data.duas.find(dua => dua.id === 'dua-000019').translations.fr.source, /invocation 19, p\. 21/);
 });
